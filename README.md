@@ -1,2 +1,2 @@
-# looti-test-public
-Test public repo for looti
+# mgemulator
+Emulator for models beyond LCDM and Modified Gravity
