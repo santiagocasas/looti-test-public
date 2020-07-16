@@ -5,6 +5,8 @@ FROM tensorflow/tensorflow:latest
 RUN pip install pandas
 RUN pip install numpy
 RUN pip install scipy
+RUN pip install future
+RUN pip install matplotlib
 RUN pip install sklearn
 RUN apt-get update
 RUN apt-get install -y git
