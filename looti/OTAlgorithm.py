@@ -128,7 +128,7 @@ class OT_Algorithm:
         start = time.time()
 
 
-        import logOT_bary as ot
+        from looti import logOT_bary as ot
 
         print('Theano compilation done in {}s.'.format(time.time()-start))
 

@@ -11,7 +11,7 @@ class loctr:
     def __init__(self,train_data,train_samples) : 
         
         globchu=self.calc_globalchunks(train_samples)
-        indlist = globchu[1]
+        indlist = globchu[0]
         local_ind = np.array(indlist)
         extr_loc_ind  = local_ind[[0,-1]]
         local_train_space = train_samples[local_ind]
@@ -41,7 +41,8 @@ class loctr:
         self.data_loctrain_space = data_loctrain_space #
 
 
-    def calc_globalchunks(self,train_samples):
+    def calc_globalchunks(self,train_samples):  
+         print(train_samples)
          indices_list=list(range(len(train_samples)))
          chunk_indy=3
          lst = indices_list
@@ -60,4 +61,5 @@ class loctr:
                      chu=lst[mini:maxi]
                  if len(chu)>1:
                      chunks.append(chu)
+         print(chunks)
          return chunks#globalchunks

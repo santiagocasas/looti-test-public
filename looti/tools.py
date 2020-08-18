@@ -146,7 +146,7 @@ def root_mean_sq_err(obs_vec, true_vec, formatted=False, digits=3):
         print("Observed vector and true vector do not have same length")
         return None
     nn = len(obs_vec)
-    mse  = (1/nn) * np.sum((obs_vec-true_vec)**2)
+    mse  = (1/nn) * np.sum((obs_vec-true_vec)**2/(true_vec)**2)
     rmse = np.sqrt(mse)
     if formatted:
         return f'{rmse:.{digits}e}'
