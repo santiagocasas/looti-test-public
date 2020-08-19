@@ -171,7 +171,7 @@ class DataHandle:
         Param_keys=list(self.df_ext.index.names)[2::2]
         Index = np.array([list(ii) for ii in self.df_ext.index.values if list(ii)[0] != 'k_grid' ])
         Param_names = Index[0,2::2].flatten()
-        self.extparam_vals = np.unique(Index[:,3::2]).astype(np.float)
+        self.extparam_vals = np.unique(Index[:,3::2],axis=0).astype(np.float)
         self.max_train = len(self.extparam_vals)-1
         
         try:

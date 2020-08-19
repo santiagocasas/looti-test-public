@@ -22,7 +22,7 @@ def _configuration_parameters(**kwargs):
         _alpha_tests = np.array([0.0008, 0.001, 0.002, 0.005, 0.01])
         _ll_tests = np.arange(1.0,11.0,3.0)
         #_cc_tests = np.linspace(0.1,10.0,3)
-        _noise_tests = np.logspace(-5.0, -1, num=10)
+        _noise_tests = np.logspace(-5.0, -1, num=5)
         alpha_tests = kwargs.get('alpha_tests', _alpha_tests)
         ll_tests = kwargs.get('ll_tests', _ll_tests)
         #cc_tests = kwargs.get('cc_tests', _cc_tests)
@@ -91,6 +91,7 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
                                                                                                         op_crossval_df_dict_all,intobj_all_dict, Y_noise)
                             except:
                                  print('Warning was raised as an exception!')
+
         elif operator == "GP":
             print("ll_tests:" , ll_tests)
             for ll in ll_tests:  #hyperparam  GP
@@ -118,6 +119,105 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
     op_noise_dicts = [op_crossval_df_dict[noi] for noi in (emulation_data.noise_names)]
     op_crossval_df = pd.concat(op_noise_dicts)
     return op_crossval_df,op_crossval_df_dict_all
+
+def cross_leave_one_out(emulation_data,n_train,operator,
+                    number_of_splits=1, thinning = 1,
+                    mask=None,split_run_ind = 0,GLOBAL_applymask = False, interp_type = 'GP',**kwargs):
+    """Performs validation to determine the optimal hyperparemeters.
+    Args:
+        emulation_data: frame used for the crossvalidation
+        n_vali:
+        wanted_ntest: number of test vector on which the validation is averaged
+        operator: operator used for the representation or interpolation 
+        max_train_size: maximum number of training vectors 
+        min_train_size: mimimum number of training vectors 
+        number_of_splits: number of split (should be one principle)
+        thinning: thinning of the grid
+        mask: mask of the grid
+        split_run_ind: index of the split chosen
+        GLOBAL_applymask : True if the mask should be applied
+        interp_type: type of the interpolator 
+    Returns:
+        op_crossval_df: frame average over the test vectors : containing number of train, parameters,
+        and stastical results
+        op_crossval_df_dict_all: frame containing number of train, parameters,
+        and stastical results for each test vectors 
+    """
+    
+
+    alpha_tests, ll_tests, noise_tests = _configuration_parameters(**kwargs)
+    op_crossval_df_dict = {} #Dictionnary of cross validation for the given operator
+    op_crossval_df_dict_all ={}
+    for noi in (emulation_data.noise_names):
+        op_crossval_df_dict[noi] =  pd.DataFrame(columns=columns_tuple)
+        op_crossval_df_dict_all [noi] = pd.DataFrame(columns=columns_tuple)
+    #numtrain=max_train_size+1
+    intobj_all_dict={}
+
+    
+    for i in range(len(emulation_data.extparam_vals)):
+
+        emulation_data.calculate_data_split(n_train=n_train, n_test=1,n_vali=1,
+                                            n_splits=number_of_splits, verbosity=0,manual_split = True,test_indices=[i])
+        emulation_data.data_split(split_index=split_run_ind, thinning=thinning, mask=mask,
+                                  apply_mask=GLOBAL_applymask, verbosity=0)
+        print("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n",emulation_data.train_size,"\n \n \n \n \n \n")
+        if operator == "LIN":
+            for intpmeth in ['int1d']: #, 'spl1d']:  #hyperparam
+                Op = dcl.LearningOperator('LIN', interp_type=intpmeth)
+                op_crossval_df_dict, op_crossval_df_dict_all=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict)
+        elif operator =="PCA":
+            minncp = n_train - 5
+            if minncp<1:
+                minncp = 2
+            maxncp = n_train
+            for ncp in range(1,emulation_data.train_size+1):
+                print(emulation_data.train_samples)
+                if interp_type =='GP':
+                    for ll in ll_tests:
+                        for Y_noise in noise_tests : 
+                            print("====== CPA Noise parameter: ",Y_noise)
+                            try:
+                                Op = dcl.LearningOperator('PCA', ncomp=ncp, interp_type=interp_type)
+                                op_crossval_df_dict, op_crossval_df_dict_all=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,
+                                                                                                        op_crossval_df_dict_all,intobj_all_dict, Y_noise)
+                            except:
+                                 print('Warning was raised as an exception!')
+                break
+        elif operator == "GP":
+            print("ll_tests:" , ll_tests)
+            for ll in ll_tests:  #hyperparam  GP
+                Op = dcl.LearningOperator('GP', gp_length=ll)
+                for Y_noise in noise_tests : 
+                    print("====== GP Noise parameter: ",Y_noise)
+                    try:
+                        op_crossval_df_dict, op_crossval_df_dict_all=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,Y_noise)
+                    except:
+                        print('Warning was raised as an exception!')
+        elif operator =="DL":
+            print("alpha tests: ", alpha_tests)
+            for aa in alpha_tests:
+                    print("====== DL alpha parameter: ", aa)
+                    ncp_min = n_train-1
+                    ncp_max = n_train + 1  # :
+                    for ncp in range(ncp_min, ncp_max):
+                        for Y_noise in noise_tests :
+                            print("====== DL Noise parameter: ",Y_noise)
+                            try:
+                                Op=dcl.LearningOperator('DL', ncomp=ncp, dl_alpha=aa, interp_type=interp_type)
+                                op_crossval_df_dict, op_crossval_df_dict_all=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,Y_noise)
+                            except:
+                                print('Warning was raised as an exception!')
+    op_noise_dicts = [op_crossval_df_dict[noi] for noi in (emulation_data.noise_names)]
+    op_crossval_df = pd.concat(op_noise_dicts)
+    return op_crossval_df,op_crossval_df_dict_all
+
+
+
+
+
+
+
 
 
 def validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,Y_noise = None):

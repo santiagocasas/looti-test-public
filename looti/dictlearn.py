@@ -439,8 +439,8 @@ def Predict_ratio(emulation_data,
               n_splits=1,
               split = 0,
               test_indices=[1],
-              train_redshift_indices = [0],
-              test_redshift_indices = [0],
+                  train_redshift_indices = [0],
+                  test_redshift_indices = [0],
               return_interpolator = False,
               thinning = 1, min_k= None,max_k =None,mask=None,interp_dim=2):
     """Construct the interpolation of a set of training vectors and return the prediction over the set of test parameters.
@@ -470,7 +470,7 @@ def Predict_ratio(emulation_data,
    
 
     if min_k is not None and max_k is not None :
-        mask = [k for k in np.where(emulation_data.lin_k_grid <max_k)[0] if k in np.where(emulation_data.lin_k_grid  >1e-4)[0]]
+        mask = [k for k in np.where(emulation_data.lin_k_grid <max_k)[0] if k in np.where(emulation_data.lin_k_grid  >min_k     )[0]]
         GLOBAL_apply_mask = True
     elif  mask is not None:
          GLOBAL_apply_mask = True
@@ -530,12 +530,20 @@ def reconstruct_spectra(ratios_predicted,
             LCDM_ref = emulation_data.df_ref.loc[emulation_data.level_of_noise,parameters[0]].values.flatten()
         else:
            LCDM_ref = emulation_data.df_ref.loc[(emulation_data.level_of_noise),:].values.flatten()
-        LCDM_ref = LCDM_ref[emulation_data.mask_true]
         if normalization  == False:
             F = 1
         else:
-            F = Interpolatation_of_f.predict(np.atleast_2d(parameters))/LCDM_ref[emulation_data.pos_norm]
-        spectrum = ratios_predicted[parameters] * LCDM_ref * F
+
+            F = Interpolatation_of_f.predict(np.atleast_2d(parameters),emulation_data.pos_norm)#/LCDM_ref[emulation_data.pos_norm]
+            F=F[0]
+            ind = emulation_data.get_index_param(parameters,emulation_data.multiple_z)
+            y = emulation_data.df_ext.loc[ind].values.flatten()[emulation_data.pos_norm]
+
+            F_true = np.atleast_1d(y/LCDM_ref[emulation_data.pos_norm])
+            print( "RMSE of normalisation factor",
+                  too.root_mean_sq_err(np.atleast_1d(F), np.atleast_1d(F_true)))
+
+        spectrum = ratios_predicted[parameters] * LCDM_ref [emulation_data.mask_true]*F
         spectra[parameters] =  spectrum
     return spectra
 
@@ -637,8 +645,13 @@ def Interpolate_over_factor(emulation_data,
     Y = []
     for x in X:
         ind = emulation_data.get_index_param(x,emulation_data.multiple_z)
-        y = emulation_data.df_ext.loc[ind].values.flatten()
-        Y.append(y)
+        y = emulation_data.df_ext.loc[ind].values.flatten()[pos_norm]
+        if emulation_data.multiple_z == True:
+            LCDM_ref = emulation_data.df_ref.loc[emulation_data.level_of_noise,x[0]].values.flatten()[pos_norm]
+        else:
+           LCDM_ref = emulation_data.df_ref.loc[(emulation_data.level_of_noise),:].values.flatten()[pos_norm]
+        
+        Y.append(y/LCDM_ref)
     Y = np.array(Y)
     kernel =  C()+ C() * RBF()
     gp_regressor = GaussianProcessRegressor(kernel=kernel ,
