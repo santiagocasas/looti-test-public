@@ -47,7 +47,6 @@ class Interpolating_function :
         else :
             return ind_argmin,ind_argmin+1
 
-from scipy import interpolate
 
 class Interpolating_function_redshift :
     def __init__(self,emulation_data,interpolation_function,redshift,normalize = False):
