@@ -295,7 +295,7 @@ def plot_RMSE(zchoice,datatest_df_dict,noi='theo',turnoff_LIN=True,turnoff_PCA=T
         ax[xx].set_ylabel(ylabdict[gl], fontsize=18)
         #ax[xx].set_xlabel('# training vectors', fontsize=18)
         #ax[xx].legend(loc='lower right', fontsize=15)
-        ax[xx].set_xticks(xvals)
+        #ax[xx].set_xticks(xvals)
         ax[xx].tick_params(axis='both', which='both', labelsize=18, length=5)
         #ax[xx].set_ylim((1e-2,2e-2))
         ax[xx].set_xlim((xvals.min(),xvals.max()))
