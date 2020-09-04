@@ -19,10 +19,10 @@ columns_tuple = ('noise_case', 'parameter','parameter_value','n_train',
 
 def _configuration_parameters(**kwargs):
 
-        _alpha_tests = np.array([0.0008, 0.001, 0.002, 0.005, 0.01])
+        _alpha_tests = np.array([0.0008])
         _ll_tests = np.arange(1.0,11.0,3.0)
         #_cc_tests = np.linspace(0.1,10.0,3)
-        _noise_tests = np.logspace(-5.0, -1, num=5)
+        _noise_tests = np.logspace(-5.0, -1, num=3)
         alpha_tests = kwargs.get('alpha_tests', _alpha_tests)
         ll_tests = kwargs.get('ll_tests', _ll_tests)
         #cc_tests = kwargs.get('cc_tests', _cc_tests)
@@ -65,7 +65,7 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
     #numtrain=max_train_size+1
     intobj_all_dict={}
 
-    for numtr in range(min_train_size,max_train_size):
+    for numtr in range(min_train_size,max_train_size,2):
         emulation_data.calculate_data_split(n_train=numtr, n_test=wanted_ntest,n_vali=n_vali,
                                             n_splits=number_of_splits, verbosity=0,manual_split = True,test_indices=[0])
         emulation_data.data_split(split_index=split_run_ind, thinning=thinning, mask=mask,
@@ -80,7 +80,7 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
             if minncp<1:
                 minncp = 2
             maxncp = numtr
-            for ncp in range(1,emulation_data.train_size+1):
+            for ncp in range(minncp,maxncp+1):
                 if interp_type =='GP':
                     for ll in ll_tests:
                         for Y_noise in noise_tests : 
@@ -302,7 +302,7 @@ def RMSE_dictionary(emulation_data,wanted_ntest,max_ntrain,min_ntrain=1,
                     turnoff_GP = True,turnoff_DL = True, turnoff_LIN = True,
                     dictparam = dict(),
                     number_of_splits=1,
-                    thinning=1,mask=None,split_run_ind = 0,GLOBAL_applymask = False):
+                    thinning=1,mask=None,split_run_ind = 0,GLOBAL_applymask = False,step=1):
     """ Compute the RMSE as a function of training vector using provided hyperparameters
     Args:
         emulation_data:
@@ -354,7 +354,7 @@ Returns:
                                             verbosity=0,manual_split = True,test_indices=[0])
     
     nb_param = int(len(emulation_data.fullspace)/len(emulation_data.z_requested))
-    for numtr in range(min_ntrain,max_ntrain):  #+1 for range
+    for numtr in range(min_ntrain,max_ntrain,step):  #+1 for range
     
         
         

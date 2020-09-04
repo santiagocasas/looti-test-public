@@ -16,32 +16,35 @@ def transform_index(data_frame,index_pos, function):
     val = function(list(data_frame.index.levels[index_pos]))
     data_frame.index = data_frame.index.set_levels(val,level=index_pos)
     return  data_frame
-s
+
 
 class Frame_Constructor:
     def __init__(self,path_config_file = "../config_read.yaml") :
-       self.__read__config_(path_config_file)
+       self.__read__config(path_config_file)
        self.starting_row = 0
        self.end_row = None
        self.redshift_digit = 3
        self.noise_level = ["theo"]
-       self.redshift_in_header = False
+       self.redshift_in_header = True
     def __read__config(self,path_config_file):
-        Param_list = yaml.load(path_config_file, Loader=yaml.FullLoader)
-        self.datafolder = Param_list["datafolder"]
+        with open(path_config_file,'r') as file:
+            Param_list = yaml.load(file, Loader=yaml.FullLoader)
+            
+        self.main_folder = Param_list["datafolder"]
         self.feature_filename = Param_list["feature_filename"]
         self.filename_format = Param_list["filename_format"]
         self.LCDM_mode = Param_list["LCDM_mode"]
         self.LCDM_folder = Param_list["LCDM_folder"]
-        self.grid_pos = Param_list["grid_pos"]
-        self.feature_pos = Param_list["feature_pos"]
+        self.grid_index = Param_list["grid_pos"]
+        self.pk_index = Param_list["feature_pos"]
         self.param_str_array = Param_list["param_str_array"]
+        
         self.sep_param = Param_list["sep_param"]
         self.sep_param_value = Param_list["sep_param_value"]
         
     def create_DataFrame(self):
 
-
+        List_of_param_str_array = self.param_str_array     
     #multiIndex =get_multiIndex(z_str_array, List_of_param_str_array, Dic_param_values)
         folder_list=read_folder(self.main_folder)
         if self.LCDM_mode == False :
@@ -56,6 +59,7 @@ class Frame_Constructor:
     
         #data_frame=pd.DataFrame( index=multiIndex, columns=np.arange(0,k_grid_size) )
         dic_index_values={}
+        self.folder_list = folder_list
         for folder in folder_list :
             try:
                     files_list = [self.main_folder+"/"+folder+"/"+ff for ff in read_file_list(self.main_folder+"/"+folder, f_pattern=self.feature_filename, ext=self.filename_format)]
@@ -63,37 +67,39 @@ class Frame_Constructor:
             except Exception as e:
                 print(type(e))
                 files_list = []
+
             for file in files_list:
+                
+               # try:
     
-                try:
-    
-                    Param_values=self.read_parameter(folder)
-                    
-                    k,pk,redshift=self.read_values(file)
-                    if self.redshift_in_header  == False:
-                        f1_ = open(file)
-                        lines_1=f1_.readlines()
-                        a = float(lines_1[1].split('=', 1)[-1])
+                Param_values=self.read_parameter(folder)
+                
+                k,pk,redshift=self.read_values(file)
+                if interpolation == True :
+                   Ratio_intpd=interpolate.interp1d(k, pk)
+                   pk = Ratio_intpd(k_grid)
+                if self.redshift_in_header  == False:
+                    f1_ = open(file)
+                    lines_1=f1_.readlines()
+                    a = float(lines_1[1].split('=', 1)[-1])
                     index=self.get_index(1/a-1, Param_values)
-    
-                    dic_index_values[index] = np.array([k_grid,pk])
-                except :
-                    print(file,"can't be  read")
+                index=self.get_index(redshift, Param_values)
+
+                dic_index_values[index] = np.array([k_grid,pk])
+               # except :
+               #     print(file,"can't be  read")
         tuples = [tt for tt in dic_index_values.keys() ]
         if self.LCDM_mode==True:
-            List_of_param_str_array = None
+            List_of_param_str_array = []
         multiIndex =  self.get_multiIndex(tuples,List_of_param_str_array)
         data_frame = pd.DataFrame( index=multiIndex, columns=np.arange(0,k_grid_size) )
         for data in( dic_index_values.keys()):
             M = dic_index_values[data]
-            try:
-                data_frame.loc[data,:] = M[1]
-            except Exception as e:
-                print(type(e))
+            data_frame.loc[data,:] = M[1]
         data_frame.loc["k_grid",:] = k_grid
         return data_frame
     
-    def get_multiIndex(tuples,List_of_param_str_array):
+    def get_multiIndex(self,tuples,List_of_param_str_array):
         names=["noise_model","redshift"]
         if self.LCDM_mode == False :
             for i,pp in enumerate(List_of_param_str_array):
@@ -118,7 +124,7 @@ class Frame_Constructor:
             for p in self.param_str_array :
                 if p in x :
                     param_values_p=float(x.strip(p))
-                    if self.ep_param_value != None :
+                    if self.sep_param_value != None :
                          param_values_p=param_values_p.strip( self.sep_param_value)
                     Param_values[p]=param_values_p
     
@@ -129,13 +135,13 @@ class Frame_Constructor:
         k_grid = file[self.starting_row:self.end_row, self.grid_index]
         pk = file[self.starting_row:self.end_row, self.pk_index]
     
-        redshift= get_redshift(file_name)
+        redshift= self.get_redshift(file_name)
         return k_grid,pk,redshift
 
 
     def get_redshift(self,file_name):
     
-        redshift =  file_name[-len(self.filextension)-self.redshift_digit:-len(self.filextension)-1]
+        redshift =  file_name[-len(self.filename_format)-self.redshift_digit:-len(self.filename_format)-1]
     
         return redshift
     
