@@ -64,7 +64,7 @@ def Plot_prediction_One_parameter(emulation_data,paramvalue = None,predictions =
     if plot_training_vectors  == True and ratio_mode == True:
         for i,trv in enumerate (emulation_data.train_samples):
             training_vector = emulation_data.matrix_datalearn_dict["theo"]["train"][i].flatten()
-            ax[0].semilogx(k_grid,training_vector ,color =cm.magma(i*50), label = func_label(emulation_data,trv))
+            ax[0].semilogx(k_grid,training_vector ,color =cm.Blues(i*50), label = func_label(emulation_data,trv))
 
     ax[1].set_ylabel("Residuals")
     ax[0].set_xlabel(xlabel)
@@ -92,6 +92,8 @@ def Plot_prediction_One_parameter(emulation_data,paramvalue = None,predictions =
 
 
     fig.suptitle(title, fontsize=14)
+    
+    return truth,prediction
 
 def f_redshift(emulation_data):
     if emulation_data.train_redshift  == emulation_data.test_redshift :
