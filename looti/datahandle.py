@@ -455,36 +455,43 @@ class DataHandle:
                  self.test_splitdict[0] = test
                  self.train_splitdict[0] = train
         elif manual_split == True:
-            test_indices = np.atleast_2d(test_indices)
-            if train_indices is not None :
-                train_indices =  np.atleast_2d(train_indices)
+            nb_param = int(len(self.fullspace)/len(self.z_requested)) ###WILL NOT WORK WELL WITH DIFFERENT PARAMS
+            if len(self.z_requested)==1:
+                nb_param = int(len(self.fullspace))
+            
+
             for ii in range (n_splits):
-
-                test = test_indices[ii]
-                if train_indices is not None :
-                    train = train_indices[ii]
+                if test_indices is not None:
+                    test_indices = np.atleast_2d(test_indices)
+                    test = test_indices[ii]
+                    test_origin = [tt%nb_param for tt in test]
                     
-                #train = [x for x  in (self.ind_midspace) if x not in test]
+                    if interpolate_over_redshift_only == False and train_indices is None:
+                        train_origin = [ii for ii in range(1,nb_param-1) if ii not in test_origin ]
+                    elif  interpolate_over_redshift_only == False and train_indices is not None:
+                         train_origin = [tt%nb_param for tt in train ]
+                    else :
+                        train_origin = test_origin
+                    
+                else:
+                    if train_indices is None:
+                       test_origin = [ii for ii in range(1,nb_param-1)]
+                       test_origin =    shuffle(test_origin)[:n_test]
+                       if interpolate_over_redshift_only == False:
+                           train_origin = [ii for ii in range(1,nb_param-1) if ii not in test_origin ]
+                       else:
+                            train_origin = test_origin
 
-                nb_param = int(len(self.fullspace)/len(self.z_requested)) ###WILL NOT WORK WELL WITH DIFFERENT PARAMS
-                if len(self.z_requested)==1:
-                     nb_param = int(len(self.fullspace))
-
-
-               #### Cosmological parameters between test and trian will be always different !!!!!###
-               # redshift_index = test[0]//nb_param #Index of the redshift
-                self.test_indices = test_indices
-                test_origin = [tt%nb_param for tt in test]
-                #train_origin = [ii for ii in range(0,nb_param) if ii not in test_mod_redshift ] # should add the extrema
-                if interpolate_over_redshift_only == False and train_indices is None:
-                    train_origin = [ii for ii in range(1,nb_param-1) if ii not in test_origin ]
-                elif  interpolate_over_redshift_only == False and train_indices is not None:
-                     train_origin = [tt%nb_param for tt in train ]
-                else :
-                    train_origin = test_origin
-                self.train_indices = train_indices
+                    else:
+                        train_indices =  np.atleast_2d(train_indices)
+                        train = train_indices[ii]
+                        train_origin = [tt%nb_param for tt in train ]
+                        test_origin = [ii for ii in range(1,nb_param-1) if ii not in train_origin ] ####!!!
+                
                 train_origin = shuffle(train_origin)
+                
                 train_origin = train_origin[:n_train]
+                test_origin = shuffle(test_origin)[:n_test]
                 if train_indices is None:
                     if [0] not in test_origin:
                         train_origin +=[0]
@@ -494,10 +501,6 @@ class DataHandle:
                     if [0] in test_origin or [nb_param-1] in test_origin :
                         print("Warning : trying to interpolate a extramal value")
                         
-                    
-            
-
-
 
                 train_redshift = self.z_requested[train_redshift_indices]
                 test_redshift = self.z_requested[test_redshift_indices]
@@ -510,9 +513,11 @@ class DataHandle:
                 for zz in train_redshift_indices:
                     train+= [ii + zz*nb_param  for ii in train_origin  ]
 
-                for zz in test_redshift_indices:
+                for zz in test_redshift_indices:    
                     test += [ii + zz*nb_param  for ii in test_origin  ]
+                        
 
+                self.train_splitdict[ii] = train
                 self.test_splitdict[ii] = test
                 shuffled = shuffle(train)
                 self.train_splitdict[ii] = shuffled
@@ -576,6 +581,9 @@ class DataHandle:
 
             for dli in self.learn_sets:
                 matrixdata = np.copy(self.matrix_ratios_dict[kki])
+                print("kki",  kki)
+                self.matrixdata=matrixdata
+                #print( matrixdata [0])
                 if apply_mask==False:
                     maskcopy=np.arange(0,len(matrixdata[0]))  ##range over all axis length, does not mask anything
                 else:

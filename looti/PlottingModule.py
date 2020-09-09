@@ -119,10 +119,13 @@ def func_label(emulation_data,paramvalues):
     parnamlist=list(emulation_data.paramnames_dict.values())
     if emulation_data.multiple_z == False:
         string=parnamlist[0]+' = '+'{:.3f}'.format(paramvalues[0])+' '
+        ZIP = zip(parnamlist[1:],paramvalues[1:])
     else :
         string=parnamlist[0]+' = '+'{:.3f}'.format(paramvalues[1])+' '
-    for i,param in enumerate(parnamlist[1:]):
-        string += '--'+param+ ' = '+'{:3f}'.format(paramvalues[i])+' '
+        ZIP = zip(parnamlist[1:],paramvalues[2:])
+
+    for param,paramvalue in (ZIP):
+        string += '--'+param+ ' = '+'{:3f}'.format(paramvalue)+' '
     return string
 
 def get_param_array(data_df, parval, quanty):
