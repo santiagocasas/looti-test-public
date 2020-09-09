@@ -1,0 +1,26 @@
+###DATA FORMAT###
+
+datafolder: ../../optimaltransport/raw_pofk/ELEPHANT/ratio_fofr_gr/ #Name of the folder which contains all the data
+feature_filename: ratio_  #Beginning of the file's name without the redshift
+filename_format: ps # extension   ## put the dot here, like .txt
+LCDM_mode: False #
+LCDM_folder: None # Indicate the name of the LCDM folder please
+use_reference: True
+reference_folder: mnv0.00000_om0.30000_As2.1000
+
+## Position of the columns in the data to be read
+grid_pos: 0
+feature_pos: 1
+
+## Name of the parameters to be emulated
+param_str_array:
+- F
+
+sep_param: _
+sep_param_value:
+
+### Data location
+starting_row: 0 #at which row the data start
+end_row:
+redshift_digit: 3 #how many digit for the redshift in the files' names ?
+redshift_in_header: True # re redshift in the file name ?

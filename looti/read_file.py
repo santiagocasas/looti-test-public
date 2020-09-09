@@ -21,11 +21,8 @@ def transform_index(data_frame,index_pos, function):
 class Frame_Constructor:
     def __init__(self,path_config_file = "../config_read.yaml") :
        self.__read__config(path_config_file)
-       self.starting_row = 0
-       self.end_row = None
-       self.redshift_digit = 3
        self.noise_level = ["theo"]
-       self.redshift_in_header = True
+       
     def __read__config(self,path_config_file):
         with open(path_config_file,'r') as file:
             Param_list = yaml.load(file, Loader=yaml.FullLoader)
@@ -41,6 +38,10 @@ class Frame_Constructor:
         
         self.sep_param = Param_list["sep_param"]
         self.sep_param_value = Param_list["sep_param_value"]
+        self.redshift_in_header = Param_list["redshift_in_header"]
+        self.redshift_digit = Param_list["redshift_digit"]
+        self.starting_row = Param_list["starting_row"]
+        self.end_row = Param_list["end_row"]
         
     def create_DataFrame(self):
 
@@ -65,29 +66,28 @@ class Frame_Constructor:
                     files_list = [self.main_folder+"/"+folder+"/"+ff for ff in read_file_list(self.main_folder+"/"+folder, f_pattern=self.feature_filename, ext=self.filename_format)]
     
             except Exception as e:
-                print(type(e))
+                print(folder,type(e))
                 files_list = []
 
             for file in files_list:
-                
-               # try:
+                try:
     
-                Param_values=self.read_parameter(folder)
-                
-                k,pk,redshift=self.read_values(file)
-                if interpolation == True :
-                   Ratio_intpd=interpolate.interp1d(k, pk)
-                   pk = Ratio_intpd(k_grid)
-                if self.redshift_in_header  == False:
-                    f1_ = open(file)
-                    lines_1=f1_.readlines()
-                    a = float(lines_1[1].split('=', 1)[-1])
-                    index=self.get_index(1/a-1, Param_values)
-                index=self.get_index(redshift, Param_values)
-
-                dic_index_values[index] = np.array([k_grid,pk])
-               # except :
-               #     print(file,"can't be  read")
+                    Param_values=self.read_parameter(folder)
+                    
+                    k,pk,redshift=self.read_values(file)
+                    if interpolation == True :
+                       Ratio_intpd=interpolate.interp1d(k, pk)
+                       pk = Ratio_intpd(k_grid)
+                    if self.redshift_in_header  == False:
+                        f1_ = open(file)
+                        lines_1=f1_.readlines()
+                        a = float(lines_1[1].split('=', 1)[-1])
+                        index=self.get_index(1/a-1, Param_values)
+                    index=self.get_index(redshift, Param_values)
+    
+                    dic_index_values[index] = np.array([k_grid,pk])
+                except :
+                    print(file,"can't be  read")
         tuples = [tt for tt in dic_index_values.keys() ]
         if self.LCDM_mode==True:
             List_of_param_str_array = []
@@ -162,7 +162,7 @@ class Frame_Constructor:
                 files = read_folder(self.main_folder+"/"+folder )
     
             except :
-                 print(ValueError)
+                 pass
             try:
                 for file in files:
                     data=np.loadtxt(self.main_folder+"/"+folder+"/"+file)
@@ -182,7 +182,7 @@ class Frame_Constructor:
     
     
             except:
-                print(ValueError)
+                pass
         if max_size>min_size :
             interpolation = True
     
