@@ -581,7 +581,6 @@ class DataHandle:
 
             for dli in self.learn_sets:
                 matrixdata = np.copy(self.matrix_ratios_dict[kki])
-                print("kki",  kki)
                 self.matrixdata=matrixdata
                 #print( matrixdata [0])
                 if apply_mask==False:

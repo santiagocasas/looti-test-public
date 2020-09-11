@@ -11,10 +11,11 @@ import numpy as np
 from sklearn.utils import shuffle
 
 
-columns_tuple = ('noise_case', 'parameter','parameter_value','n_train',
+columns_tuple = ('noise_case', 'paramid','parameter','parameter_value','split','n_train',
                  'interp_type','ncomp','gp_noise', 'gp_length', 'gp_const','dl_alpha','rmse','maxerr','global_mean_minerr',
                  'global_mean_maxerr', 'global_mean_rmse',
                  'global_max_rmse', 'global_var_rmse',)
+
 
 
 def _configuration_parameters(**kwargs):
@@ -33,7 +34,7 @@ def _configuration_parameters(**kwargs):
 
 def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
                     min_train_size =1,number_of_splits=1, thinning = 1,
-                    mask=None,split_run_ind = 0,GLOBAL_applymask = False, interp_type = 'GP',**kwargs):
+                    mask=None,split_run_ind = 0,GLOBAL_applymask = False, interp_type = 'GP',eps=1e-2,**kwargs):
     """Performs validation to determine the optimal hyperparemeters.
     Args:
         emulation_data: frame used for the crossvalidation
@@ -64,60 +65,66 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
         op_crossval_df_dict_all [noi] = pd.DataFrame(columns=columns_tuple)
     #numtrain=max_train_size+1
     intobj_all_dict={}
-
+   # 
     for numtr in range(min_train_size,max_train_size,2):
         emulation_data.calculate_data_split(n_train=numtr, n_test=wanted_ntest,n_vali=n_vali,
-                                            n_splits=number_of_splits, verbosity=0,manual_split = True,test_indices=[0])
-        emulation_data.data_split(split_index=split_run_ind, thinning=thinning, mask=mask,
-                                  apply_mask=GLOBAL_applymask, verbosity=0)
+                                            n_splits=number_of_splits, verbosity=0,manual_split = True)
+        for nsplit in range(number_of_splits):
+            emulation_data.data_split(split_index=nsplit, thinning=thinning, mask=mask,
+                                      apply_mask=GLOBAL_applymask, verbosity=0)
 
-        if operator == "LIN":
-            for intpmeth in ['int1d']: #, 'spl1d']:  #hyperparam
-                Op = dcl.LearningOperator('LIN', interp_type=intpmeth)
-                op_crossval_df_dict, op_crossval_df_dict_all=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict)
-        elif operator =="PCA":
-            minncp = numtr - 5
-            if minncp<1:
-                minncp = 2
-            maxncp = numtr
-            for ncp in range(minncp,maxncp+1):
-                if interp_type =='GP':
-                    for ll in ll_tests:
-                        for Y_noise in noise_tests : 
-                            print("====== CPA Noise parameter: ",Y_noise)
-                            try:
+            if operator == "LIN":
+                for intpmeth in ['int1d']: #, 'spl1d']:  #hyperparam
+                    Op = dcl.LearningOperator('LIN', interp_type=intpmeth)
+                    op_crossval_df_dict, op_crossval_df_dict_all,global_mean_rmse=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,split =nsplit)
+            elif operator =="PCA":
+                minncp = numtr//2
+                maxncp = numtr
+                rmse=float('inf')
+                for ncp in range(minncp,maxncp+1):
+                    if interp_type =='GP':
+                        for ll in ll_tests:
+                            for Y_noise in noise_tests : 
+                                print("====== CPA Noise parameter: ",Y_noise)
                                 Op = dcl.LearningOperator('PCA', ncomp=ncp, interp_type=interp_type)
-                                op_crossval_df_dict, op_crossval_df_dict_all=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,
-                                                                                                        op_crossval_df_dict_all,intobj_all_dict, Y_noise)
-                            except:
-                                 print('Warning was raised as an exception!')
+                                op_crossval_df_dict, op_crossval_df_dict_all,global_mean_rmse=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,
+                                                                                              op_crossval_df_dict_all,intobj_all_dict, Y_noise,split =nsplit)
+   
+                    if np.abs(rmse-global_mean_rmse)<eps:
+                        break
+                    rmse = global_mean_rmse
+                                 #print('Warning was raised as an exception!')
 
-        elif operator == "GP":
-            print("ll_tests:" , ll_tests)
-            for ll in ll_tests:  #hyperparam  GP
-                Op = dcl.LearningOperator('GP', gp_length=ll)
-                for Y_noise in noise_tests : 
-                    print("====== GP Noise parameter: ",Y_noise)
-                    try:
-                        op_crossval_df_dict, op_crossval_df_dict_all=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,Y_noise)
-                    except:
-                        print('Warning was raised as an exception!')
-        elif operator =="DL":
-            print("alpha tests: ", alpha_tests)
-            for aa in alpha_tests:
-                    print("====== DL alpha parameter: ", aa)
-                    ncp_min = numtr-1
-                    ncp_max = numtr + 1  # :
-                    for ncp in range(ncp_min, ncp_max):
-                        for Y_noise in noise_tests :
-                            print("====== DL Noise parameter: ",Y_noise)
-                            try:
-                                Op=dcl.LearningOperator('DL', ncomp=ncp, dl_alpha=aa, interp_type=interp_type)
-                                op_crossval_df_dict, op_crossval_df_dict_all=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,Y_noise)
-                            except:
-                                print('Warning was raised as an exception!')
-    op_noise_dicts = [op_crossval_df_dict[noi] for noi in (emulation_data.noise_names)]
-    op_crossval_df = pd.concat(op_noise_dicts)
+            elif operator == "GP":
+                print("ll_tests:" , ll_tests)
+                for ll in ll_tests:  #hyperparam  GP
+                    Op = dcl.LearningOperator('GP', gp_length=ll)
+                    for Y_noise in noise_tests : 
+                        print("====== GP Noise parameter: ",Y_noise)
+                        try:
+                            op_crossval_df_dict, op_crossval_df_dict_all,global_mean_rmse=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,Y_noise,split =nsplit)
+                        except:
+                            print('Warning was raised as an exception!')
+            elif operator =="DL":
+                print("alpha tests: ", alpha_tests)
+                for aa in alpha_tests:
+                        print("====== DL alpha parameter: ", aa)
+                        ncp_min = numtr#//2
+                        ncp_max = numtr +1#+ 5  # :
+                        rmse=float('inf')
+                        for ncp in range(ncp_min, ncp_max):
+                            for Y_noise in noise_tests :
+                                print("====== DL Noise parameter: ",Y_noise)
+                                try:
+                                    Op=dcl.LearningOperator('DL', ncomp=ncp, dl_alpha=aa, interp_type=interp_type)
+                                    op_crossval_df_dict, op_crossval_df_dict_all,global_mean_rmse=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,Y_noise,split =nsplit)
+                                except:
+                                    print('Warning was raised as an exception!')
+                            if np.abs(rmse-global_mean_rmse)<eps:
+                                break
+                            rmse = global_mean_rmse
+        op_noise_dicts = [op_crossval_df_dict[noi] for noi in (emulation_data.noise_names)]
+        op_crossval_df = pd.concat(op_noise_dicts)
     return op_crossval_df,op_crossval_df_dict_all
 
 def cross_leave_one_out(emulation_data,n_train,operator,
@@ -161,7 +168,7 @@ def cross_leave_one_out(emulation_data,n_train,operator,
                                             n_splits=number_of_splits, verbosity=0,manual_split = True,test_indices=[i])
         emulation_data.data_split(split_index=split_run_ind, thinning=thinning, mask=mask,
                                   apply_mask=GLOBAL_applymask, verbosity=0)
-        print("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n",emulation_data.train_size,"\n \n \n \n \n \n")
+
         if operator == "LIN":
             for intpmeth in ['int1d']: #, 'spl1d']:  #hyperparam
                 Op = dcl.LearningOperator('LIN', interp_type=intpmeth)
@@ -218,9 +225,8 @@ def cross_leave_one_out(emulation_data,n_train,operator,
 
 
 
-
-
-def validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,Y_noise = None):
+    
+def validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,Y_noise = None,split =1):
     """ Compute the interpolation and the statistics
     Args:
         Op:
@@ -254,12 +260,13 @@ def validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossva
                                     emulation_data.test_samples)
 
         intobj_all_dict[noi].print_statistics()
-        
-        
+
         
         app_dict = fill_stats_dict(intobj_all_dict[noi], columns_tuple)
         app_dict['noise_case'] = noi
         app_dict['n_train'] = emulation_data.train_size
+        app_dict['split'] = split
+        
         
         op_crossval_df_dict[noi] = op_crossval_df_dict[noi].append(app_dict, ignore_index=True)
         for param in emulation_data.test_samples:
@@ -270,12 +277,8 @@ def validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossva
             app_dict['maxerr']= intobj_all_dict[noi].maxerr_dict[param]
 
             op_crossval_df_dict_all[noi] = op_crossval_df_dict_all[noi].append(app_dict, ignore_index=True)
-        
-            
-        
-        
-            
-    return op_crossval_df_dict,op_crossval_df_dict_all
+
+    return op_crossval_df_dict,op_crossval_df_dict_all,app_dict['global_mean_rmse']
 
 def op_crossval_df_dict_mingroup_function(emulation_data,op_crossval_df_dict):
     """ Find the optimal parameters which minimize the global mean rmse
