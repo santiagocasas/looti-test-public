@@ -1,0 +1,10 @@
+name: lootiemu
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - pandas
+  - scipy
+  - future
+  - matplotlib
+  - scikit-learn
