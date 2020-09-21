@@ -354,15 +354,8 @@ Returns:
     for noi in (["theo"]):
         datatest_df_dict[noi] =  pd.DataFrame(columns=columns_tuple)
 
-    emulation_data.calculate_data_split(n_train=1, n_test=1, n_splits=1,
 
     for numtr in range(min_ntrain,max_ntrain,step):  #+1 for range
-
-
-
-        test = [ii for ii in range(0,nb_param)  ]
-        test=test[::wanted_ntest]
-
 
         emulation_data.calculate_data_split(n_train=numtr, n_test=wanted_ntest, n_splits=number_of_splits,
                                             verbosity=1,manual_split = True,train_redshift_indices = redshift_index,test_redshift_indices= redshift_index)
