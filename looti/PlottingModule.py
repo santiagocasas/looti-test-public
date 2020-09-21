@@ -12,7 +12,7 @@ from matplotlib.lines import Line2D
 import matplotlib.cm as cm
 def Plot_prediction_One_parameter(emulation_data,paramvalue = None,predictions = None,
                                    xlabel='k in 1/Mpc',Factor = 1,ratio_mode = True,y_scale_log = False,
-                                   plot_training_vectors = False) :
+                                   plot_training_vectors = False,save_path=None,name_of_plot="pred_temp" ):
     """Plot the prediction for one single parameter 
 
         Args:
@@ -92,7 +92,8 @@ def Plot_prediction_One_parameter(emulation_data,paramvalue = None,predictions =
 
 
     fig.suptitle(title, fontsize=14)
-    
+    if save_path!=None:
+        plt.savefig(save_path+name_of_plot+'.png')
     return truth,prediction
 
 def f_redshift(emulation_data):
@@ -256,7 +257,7 @@ def plot_RMSE(zchoice,datatest_df_dict,noi='theo',turnoff_LIN=True,turnoff_PCA=T
             Yvals = np.array([dd.loc['LIN'][gl].groupby('n_train').mean() for dd in dat_df ]).reshape((len(dat_df),len(xvals)))
             yvals = np.mean(Yvals,axis =0)
             ystd = np.std(Yvals,axis =0)/len(xvals)
-            ax[xx].plot(xvals,yvals, '--', color=pca_namedcol, lw=3, ms=5,  alpha=0.6, label=lab_lin    )
+            ax[xx].plot(xvals,yvals, '--', color=lin_namedcol, lw=3, ms=5,  alpha=0.6, label=lab_lin    )
           
 
         c=next(color_iter)

@@ -348,7 +348,7 @@ class LearnData:
         if emulation_data != []:
             spectra = reconstruct_spectra(self.predict_mat_dict,emulation_data)
             
-        for pv in self.predict_space:
+        for pv in self.predict_mat_dict.keys():
             pv=tuple(pv)
             ratiodata_dict[pv] = (self.predict_mat_dict[pv]-testvali_data_dict[pv])/testvali_data_dict[pv]
             minerr_dict[pv], maxerr_dict[pv] = too.minmax_abs_err(self.predict_mat_dict[pv],testvali_data_dict[pv], percentage=False)

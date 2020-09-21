@@ -56,7 +56,7 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
         and stastical results for each test vectors 
     """
     
-
+    
     alpha_tests, ll_tests, noise_tests = _configuration_parameters(**kwargs)
     op_crossval_df_dict = {} #Dictionnary of cross validation for the given operator
     op_crossval_df_dict_all ={}
@@ -75,7 +75,7 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
 
             if operator == "LIN":
                 for intpmeth in ['int1d']: #, 'spl1d']:  #hyperparam
-                    Op = dcl.LearningOperator('LIN', interp_type=intpmeth)
+                    Op = dcl.LearningOperator('LIN', interp_type=intpmeth,interp_dim =1)
                     op_crossval_df_dict, op_crossval_df_dict_all,global_mean_rmse=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,split =nsplit)
             elif operator =="PCA":
                 minncp = numtr//2
@@ -171,7 +171,7 @@ def cross_leave_one_out(emulation_data,n_train,operator,
 
         if operator == "LIN":
             for intpmeth in ['int1d']: #, 'spl1d']:  #hyperparam
-                Op = dcl.LearningOperator('LIN', interp_type=intpmeth)
+                Op = dcl.LearningOperator('LIN', interp_type=intpmeth,interp_dim =1)
                 op_crossval_df_dict, op_crossval_df_dict_all=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict)
         elif operator =="PCA":
             minncp = n_train - 5
@@ -356,16 +356,12 @@ Returns:
     emulation_data.calculate_data_split(n_train=1, n_test=1, n_splits=1,
                                             verbosity=0,manual_split = True,test_indices=[0])
     
-    nb_param = int(len(emulation_data.fullspace)/len(emulation_data.z_requested))
+
     for numtr in range(min_ntrain,max_ntrain,step):  #+1 for range
     
-        
-        
-        test = [ii for ii in range(0,nb_param)  ]
-        test=test[::wanted_ntest]
 
         emulation_data.calculate_data_split(n_train=numtr, n_test=wanted_ntest, n_splits=number_of_splits,
-                                            verbosity=1,manual_split = True,test_indices=[test],train_redshift_indices = redshift_index,test_redshift_indices= redshift_index)
+                                            verbosity=1,manual_split = True,train_redshift_indices = redshift_index,test_redshift_indices= redshift_index)
         emulation_data.data_split(split_index=split_run_ind, thinning=thinning, mask=mask,
                                   apply_mask=GLOBAL_applymask, verbosity=0)
 
@@ -376,7 +372,7 @@ Returns:
 
         for noi in (["theo"]):
             if turnoff_LIN ==False :
-                
+ 
                 if lin_crossval_df_dict_mingroup is not None :
                     LIN_intptype = lin_crossval_df_dict_mingroup[noi].loc[tr_sz]['interp_type']
                 else:
@@ -385,7 +381,7 @@ Returns:
                 print("++++"+noi)
                 print("LIN :", LIN_intptype)
                 intobj_all = test_return_obj(emulation_data,
-                             method='LIN', interp_type=LIN_intptype, noisecase=noi)
+                             method='LIN', interp_type=LIN_intptype, interp_dim =1,noisecase=noi)
             
                 for ppi in emulation_data.test_samples:
                     app_dict = fill_app_dict(intobj_all, param_val=ppi, n_train = tr_sz, noisecase=noi,
@@ -521,25 +517,26 @@ def RMSE_dictionary_redshift(emulation_data,max_redshift,min_redshift=1,test_red
         tr_sz = emulation_data.train_size
 
         for noi in (["theo"]):
-
-            if turnoff_LIN ==False :
-                
-                if lin_crossval_df_dict_mingroup is not None :
-                    LIN_intptype = lin_crossval_df_dict_mingroup[noi].loc[tr_sz]['interp_type']
-                else:
-                    LIN_intptype = dictparam['interp_type']
+            try:
+                if turnoff_LIN ==False :
                     
-                print("++++"+noi)
-                print("LIN :", LIN_intptype)
-                intobj_all = test_return_obj(emulation_data,
-                             method='LIN', interp_type=LIN_intptype, noisecase=noi)
-            
-                for ppi in emulation_data.test_samples:
-                    app_dict = fill_app_dict(intobj_all, param_val=ppi, n_train = nredshift , noisecase=noi,
-                                         columns_tuple=columns_tuple)
-            
-                    datatest_df_dict[noi] = datatest_df_dict[noi].append(app_dict, ignore_index=True)
-
+                    if lin_crossval_df_dict_mingroup is not None :
+                        LIN_intptype = lin_crossval_df_dict_mingroup[noi].loc[tr_sz]['interp_type']
+                    else:
+                        LIN_intptype = dictparam['interp_type']
+                        
+                    print("++++"+noi)
+                    print("LIN :", LIN_intptype)
+                    intobj_all = test_return_obj(emulation_data,
+                                 method='LIN', interp_type=LIN_intptype, noisecase=noi)
+                    
+                    for ppi in emulation_data.test_samples:
+                        app_dict = fill_app_dict(intobj_all, param_val=ppi, n_train = nredshift , noisecase=noi,
+                                             columns_tuple=columns_tuple)
+                
+                        datatest_df_dict[noi] = datatest_df_dict[noi].append(app_dict, ignore_index=True)
+            except:
+                    ass
 
             if turnoff_PCA==False:
                 
@@ -627,9 +624,9 @@ def index_sort(datatest_df_dict,emulation_data):
     return datatest_df_dict
 
 
-def test_return_obj(emulation_data, method='PCA', ncomp=None, dl_alpha=None, interp_type='int1d', noisecase='theo',gp_const=10, gp_length=5,Y_noise=None):
+def test_return_obj(emulation_data, method='PCA', ncomp=None, dl_alpha=None, interp_type='int1d', noisecase='theo',gp_const=10, gp_length=5,Y_noise=None,interp_dim = 2):
 
-    Dop = dcl.LearningOperator(method, ncomp=ncomp, dl_alpha=dl_alpha, interp_type=interp_type,gp_const=gp_const,gp_length=gp_length)
+    Dop = dcl.LearningOperator(method, ncomp=ncomp, dl_alpha=dl_alpha, interp_type=interp_type,gp_const=gp_const,gp_length=gp_length,interp_dim =interp_dim )
     if noisecase!='theo' and method=='GP':
         y_noi = noise_per_sample(emulation_data.matrix_datalearn_dict[noisecase]['train'],
             emulation_data.matrix_datalearn_dict['theo']['train'])
