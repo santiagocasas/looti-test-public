@@ -81,7 +81,7 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
                 if minncp <= 1:
                     minncp = 2
                 maxncp = numtr
-                rmse=float('inf')
+                list_rmse=[]
                 for ncp in range(minncp,maxncp+1):
                     if interp_type =='GP':
                         for ll in ll_tests:
@@ -90,11 +90,15 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
                                 Op = dcl.LearningOperator('PCA', ncomp=ncp, interp_type=interp_type, gp_length=ll)
                                 op_crossval_df_dict, op_crossval_df_dict_all,global_mean_rmse=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,
                                                                                               op_crossval_df_dict_all,intobj_all_dict, Y_noise,split=nsplit)
+                    list_rmse.append(global_mean_rmse)
+                    if len(list_rmse) == 5:
+                        mean_rmse = np.mean(list_rmse[:4])        
+                        if np.abs(1-list_rmse[-1]/mean_rmse )<eps:
+                            list_rmse=[]
+                            break
+                        else:
+                            list_rmse=[]
 
-                    if np.abs(rmse-global_mean_rmse)<eps:
-                        break
-                    rmse = global_mean_rmse
-                                 #print('Warning was raised as an exception!')
 
             elif operator == "GP":
                 print("ll_tests:" , ll_tests)
@@ -112,17 +116,25 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
                         print("====== DL alpha parameter: ", aa)
                         ncp_min = numtr//2
                         ncp_max = int(numtr*1.10)#+ 5  # :
-                        rmse=float('inf')
+                        list_rmse=[]
                         for ncp in range(ncp_min, ncp_max):
                             for Y_noise in noise_tests :
                                 print("====== DL Noise parameter: ",Y_noise)
                                 try:
                                     Op=dcl.LearningOperator('DL', ncomp=ncp, dl_alpha=aa, interp_type=interp_type)
                                     op_crossval_df_dict, op_crossval_df_dict_all,global_mean_rmse=validation_over_noise_level(Op,emulation_data,op_crossval_df_dict,op_crossval_df_dict_all,intobj_all_dict,Y_noise,split =nsplit)
+
+                                  
                                 except:
                                     print('Warning was raised as an exception!')
-                            if np.abs(rmse-global_mean_rmse)<eps:
-                                break
+                            list_rmse.append(global_mean_rmse)
+                            if len(list_rmse) == 5:
+                                mean_rmse = np.mean(list_rmse[:4])        
+                                if np.abs(1-list_rmse[-1]/mean_rmse )<eps:
+                                    list_rmse=[]
+                                    break
+                                else:
+                                    list_rmse=[]
                             rmse = global_mean_rmse
         op_noise_dicts = [op_crossval_df_dict[noi] for noi in (emulation_data.noise_names)]
         op_crossval_df = pd.concat(op_noise_dicts)
