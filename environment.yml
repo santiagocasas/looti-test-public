@@ -1,10 +1,14 @@
 name: lootiemu
 channels:
-  - conda-forge
+  - defaults
 dependencies:
   - numpy
-  - pandas
   - scipy
-  - future
+  - ipython
+  - jupyter
+  - pandas
   - matplotlib
   - scikit-learn
+  - future
+  - emcee
+
