@@ -1,6 +1,7 @@
 name: lootiemu
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - numpy
   - scipy

@@ -18,5 +18,3 @@ General Emulator/Interpolator for models beyond LCDM
 ## Examples
 
 Go to the folder `notebooks/` to see some hands-on examples on different use cases.
-
- 
