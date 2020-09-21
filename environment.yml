@@ -1,4 +1,4 @@
-name: looti
+name: lootiemu
 channels:
   - conda-forge
 dependencies:
@@ -7,4 +7,4 @@ dependencies:
   - scipy
   - future
   - matplotlib
-  - sklearn
+  - scikit-learn
