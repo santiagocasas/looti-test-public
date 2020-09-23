@@ -67,7 +67,7 @@ class Interpolating_function_redshift :
             F_norm = self.interpolation_function_factor.predict(parameters)
         else:
             F_norm = 1
-            print("f",F_norm)
+            #print("f",F_norm)
         spectra_normalised = spectra* F_norm
 
         return spectra_normalised
