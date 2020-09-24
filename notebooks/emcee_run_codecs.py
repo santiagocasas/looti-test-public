@@ -18,8 +18,8 @@ import joblib
 import emcee
 import pyccl as ccl
 from multiprocessing import set_start_method, Pool
-#set_start_method('forkserver')
 
+#set_start_method('spawn')
 
 truth_ratio_data_path = './obs_data/ratio-Codecs-website-truth-norm-beta0p1-z0.txt'#"./obs_data/Pk-Codecs-website-z0-beta0p10.txt"
 truth_omegam=0.32
@@ -196,11 +196,11 @@ def run_emcee_mp(nsample=1000, interp_model=None):#, pool=None):
 
 print("starting sampler...")
 start = time.time()
-sampler = run_emcee_mp(5000, interp_model=Interpolation_Fits_loaded)
+sampler = run_emcee_mp(5000, interp_model=Interpolation_Codecs_loaded)
 flat_samples = sampler.get_chain( flat=True)
-np.savetxt('results/flat_chain_5000_intp_fits.txt', flat_samples)
+np.savetxt('results/flat_chain_5000_intp_codecs.txt', flat_samples)
 end = time.time()
 mcmc_time = end - start
-print("Multiprocessing MCMC took {0:.1f} seconds".format(multi_time))
+print("Multiprocessing MCMC took {0:.1f} seconds".format(mcmc_time))
 print("Calculation finished")
 
