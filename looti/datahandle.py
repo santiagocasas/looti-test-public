@@ -197,6 +197,9 @@ class DataHandle:
             takes the references. At this point any ratio equals to 1
         """
         redshift_list = np.atleast_1d(redshift_list)
+        
+        ###If we have only redshift we must indicate it with self.multiple_z.
+        ##If self.multiple_z = False the interpolator will construct an interpolation without taking the redshift into account
         if redshift_list.size==1:
             self.multiple_z = False
         else:
@@ -248,7 +251,8 @@ class DataHandle:
                     reftheo=exnoi/exnoi # vectors of one and size exnoi generated
                 else:
                     reftheo=self.df_ref.loc[(self.noiseless_str,z_request),:].values.flatten()
-
+                    
+                ####Here is where we normalize the ratios. We force R(pos_norm)  = 1.
                 if normalize == True:
                     F_norm = reftheo[pos_norm]/exnoi[pos_norm]
                 else:
@@ -454,25 +458,33 @@ class DataHandle:
                  train = self.ind_extremaspace
                  self.test_splitdict[0] = test
                  self.train_splitdict[0] = train
+                 
+        ###/!\ Warning /!\ For now we always use manual split (which not really manual now...)
         elif manual_split == True:
-            nb_param = int(len(self.fullspace)/len(self.z_requested)) ###WILL NOT WORK WELL WITH DIFFERENT PARAMS
+            ### Determine the number of samples avaible with different values of parameters. e.g nb_param = 101 for MassiveNus
+            nb_param = int(len(self.fullspace)/len(self.z_requested)) 
             if len(self.z_requested)==1:
                 nb_param = int(len(self.fullspace))
             
 
             for ii in range (n_splits):
+                ###Here the user has chosen to provide the test indices
                 if test_indices is not None:
                     test_indices = np.atleast_2d(test_indices)
                     test = test_indices[ii]
+                    ###We make sure that the indice lies into a correct space. e.g if we have nb_param = 101, and a indices i = 103 it will become i =2
                     test_origin = [tt%nb_param for tt in test]
                     
+                    ###Do we want to construct a interpolation only over the redshift ? /!\ Warning  /!\ this is case is not really used....
                     if interpolate_over_redshift_only == False and train_indices is None:
                         train_origin = [ii for ii in range(1,nb_param-1) if ii not in test_origin ]
+
                     elif  interpolate_over_redshift_only == False and train_indices is not None:
                          train_origin = [tt%nb_param for tt in train ]
                     else :
                         train_origin = test_origin
-                    
+                ###Here the user has chosen not to provide the test indices
+                ## so we first randomly generate them
                 else:
                     if train_indices is None:
                        test_origin = [ii for ii in range(1,nb_param-1)]
@@ -481,7 +493,7 @@ class DataHandle:
                            train_origin = [ii for ii in range(1,nb_param-1) if ii not in test_origin ]
                        else:
                             train_origin = test_origin
-
+                    ###The user has specified train indices so must be sure that train and test do not overlap !
                     else:
                         train_indices =  np.atleast_2d(train_indices)
                         train = train_indices[ii]
@@ -510,6 +522,7 @@ class DataHandle:
                 too.condprint("redshfit used for testing", test_redshift,level=1,verbosity=verbosity)
                 train  = []
                 test  = []
+                ### looping over the redshift 
                 for zz in train_redshift_indices:
                     train+= [ii + zz*nb_param  for ii in train_origin  ]
 
