@@ -563,7 +563,7 @@ def RMSE_parameters(emulation_data,
               test_redshift_indices = [0],
               thinning = 1, min_k= None,max_k =None,mask=None,interp_dim=2):
     
-    
+    """/!\ WARNING /!\ we are not using this function anymore."""
     n_test = len(emulation_data.matrix_ratios_dict["theo"])/len(emulation_data.z_requested)
     Params = []
     RMSE_array = []
@@ -584,7 +584,7 @@ def RMSE_parameters(emulation_data,
 
 
 def Interpolate_over_parameter_for_any_redshift(emulation_data,test_indices,n_train = 10,n_param_test = 5, n_test_redshift=10,Y_noise = 1e-4):
-
+    """/!\ WARNING /!\ we are not using this function anymore."""
     D_redshift = []
     for i,z_vals in enumerate(emulation_data.z_requested):
         emulation_data.calculate_data_split(n_train = n_train,n_vali = 1, n_test = n_param_test,
@@ -605,6 +605,12 @@ def Interpolate_over_parameter_for_any_redshift(emulation_data,test_indices,n_tr
     return np.array(D_redshift)
 
 def RMSE_Interpolate_over_redshift(emulation_data,D_redshifts,test_indices,min_n_train,max_n_train,n_test,Y_noise=1e-4):
+    """ Interpolate over the redshift. This function would randomly sample train vectors
+    with values of redshifts different and same values of parameters comapare to the test vectors.
+    /!\ WARNING /!\ we are not using this function anymore.
+     """
+    
+    
     redshift_indices = list(range(len(emulation_data.z_requested)))
     redshift_indices = shuffle(redshift_indices )
     test_redshift_indices = redshift_indices[:n_test]
@@ -664,6 +670,13 @@ def Interpolate_over_factor(emulation_data,
 
 
 def Interpolate_over_parameter_and_redshift(emulation_data,test_indices,min_n_train,max_n_train,n_test,Y_noise = 1e-4, min_k = None ,max_k = None, mask =None):
+    """ Interpolate over the parameters and the redshift. This function would randomly sample train vectors
+    with values of parameters and redshifts different from the test vectors.
+    /!\ WARNING /!\ we are not using this function anymore.
+     """
+    
+    
+    
     redshift_indices = list(range(len(emulation_data.z_requested)))
     redshift_indices = shuffle(redshift_indices)
     test_redshift_indices = redshift_indices[:n_test]
