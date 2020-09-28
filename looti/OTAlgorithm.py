@@ -26,7 +26,14 @@ class OT_Algorithm:
 
 
     def OT_Algorithm(self,samples,xgrid,mode=None,data=None):
-
+        """ Performs the OT algorithm
+        Args:
+            samples:
+            xgrids:
+            mode:
+            data:
+        
+        """
         if mode=='train':
             weights=None
             self.loctr=OTdst.loctr(data,samples) # compute the chunk and the local vectors for training
@@ -63,6 +70,8 @@ class OT_Algorithm:
         return outDF
 
     def computeWeightsFuncAlt(self):
+        """map the weights with the parameters such that |barycenter - ratio(parameters) | is minimum
+        """
         weigths_arra=self.trainedOT_df.columns.values
         middlemodels=self.loctr.local_matrixdata
         middlepars=self.loctr.local_train_space
@@ -86,6 +95,11 @@ class OT_Algorithm:
 
 
     def interpolateWeights(self,interpolator_func):
+        """Interpolate f : parameters -> weights
+        Args:
+            interpolator_func: function used to construct the interpolation
+        """
+        
         recospace=self.loctr.data_loc_space
         wex = np.array(list(self.weights_dic.keys()))
         wey = np.array(list(self.weights_dic.values()))
@@ -101,6 +115,14 @@ class OT_Algorithm:
 
 
     def calcOT(self,xgrid,models_in=[],weights=None,nsteps=30):
+      """Compute the barycenter associated to the weights
+      Args:
+          xgrid:
+          models_in:
+          weights:
+          nsepts: 
+        
+      """
       # run OT algorithm
       print("Running OT algorithm...")
       trainingmodes = copy.deepcopy(models_in)
@@ -122,6 +144,9 @@ class OT_Algorithm:
 
 
     def wasserOT(self,xgrid,normalmodes=[], normaliz=[], minc=0.,gamma_reg=1e-7, num_iter=500,weights=None,nsteps=30):
+        """Generate a grid of weights if None, compute the barycenter
+        """
+        
         xgrid=copy.deepcopy(xgrid)
         # Wasserstein params and ground metric
 

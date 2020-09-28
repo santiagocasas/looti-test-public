@@ -19,16 +19,19 @@ columns_tuple = ('noise_case', 'paramid','parameter','parameter_value','split','
 
 
 def _configuration_parameters(**kwargs):
-
-        _alpha_tests = np.array([0.0008])
-        _ll_tests = np.arange(1.0,11.0,3.0)
-        #_cc_tests = np.linspace(0.1,10.0,3)
-        _noise_tests = np.logspace(-5.0, -1, num=3)
-        alpha_tests = kwargs.get('alpha_tests', _alpha_tests)
-        ll_tests = kwargs.get('ll_tests', _ll_tests)
-        #cc_tests = kwargs.get('cc_tests', _cc_tests)
-        noise_tests =kwargs.get('noise_tests', _noise_tests)
-        return (alpha_tests, ll_tests,noise_tests)
+    """Define the parameter for validation
+    """
+    
+    ### Default paramters values
+    _alpha_tests = np.array([0.0008])
+    _ll_tests = np.arange(1.0,11.0,3.0)
+    #_cc_tests = np.linspace(0.1,10.0,3)
+    _noise_tests = np.logspace(-5.0, -1, num=3)
+    alpha_tests = kwargs.get('alpha_tests', _alpha_tests)
+    ll_tests = kwargs.get('ll_tests', _ll_tests)
+    #cc_tests = kwargs.get('cc_tests', _cc_tests)
+    noise_tests =kwargs.get('noise_tests', _noise_tests)
+    return (alpha_tests, ll_tests,noise_tests)
 
 
 
