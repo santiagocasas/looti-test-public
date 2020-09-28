@@ -68,9 +68,11 @@ def cross_validation(emulation_data,n_vali,wanted_ntest,operator,max_train_size,
     #numtrain=max_train_size+1
     intobj_all_dict={}
    #
+   ###LOOP OVER THE TRAINING VECTORS
     for numtr in range(min_train_size,max_train_size,2):
         emulation_data.calculate_data_split(n_train=numtr, n_test=wanted_ntest,n_vali=n_vali,
                                             n_splits=number_of_splits, verbosity=0,manual_split = True)
+        ###LOOP OVER THE SPLIT
         for nsplit in range(number_of_splits):
             emulation_data.data_split(split_index=nsplit, thinning=thinning, mask=mask,
                                       apply_mask=GLOBAL_applymask, verbosity=0)
@@ -173,6 +175,7 @@ def cross_leave_one_out(emulation_data,n_train,operator,
     alpha_tests, ll_tests, noise_tests = _configuration_parameters(**kwargs)
     op_crossval_df_dict = {} #Dictionnary of cross validation for the given operator
     op_crossval_df_dict_all ={}
+    
     for noi in (emulation_data.noise_names):
         op_crossval_df_dict[noi] =  pd.DataFrame(columns=columns_tuple)
         op_crossval_df_dict_all [noi] = pd.DataFrame(columns=columns_tuple)
@@ -197,7 +200,6 @@ def cross_leave_one_out(emulation_data,n_train,operator,
                 minncp = 2
             maxncp = n_train
             for ncp in range(1,emulation_data.train_size+1):
-                print(emulation_data.train_samples)
                 if interp_type =='GP':
                     for ll in ll_tests:
                         for Y_noise in noise_tests :
@@ -478,7 +480,7 @@ def RMSE_dictionary_redshift(emulation_data,max_redshift,min_redshift=1,test_red
                     dictparam = dict(),
                     number_of_splits=1,
                     thinning=1,mask=None,split_run_ind = 0,GLOBAL_applymask = False):
-
+    """/!\ WARNING /!\ Not use anymore"""
 
 
   #  %%time
@@ -550,7 +552,7 @@ def RMSE_dictionary_redshift(emulation_data,max_redshift,min_redshift=1,test_red
                 
                         datatest_df_dict[noi] = datatest_df_dict[noi].append(app_dict, ignore_index=True)
             except:
-                    ass
+                    pass
 
             if turnoff_PCA==False:
 
