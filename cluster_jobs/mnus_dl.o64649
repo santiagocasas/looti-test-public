@@ -1,0 +1,81 @@
+activating environment
+installing code
+running install
+running bdist_egg
+running egg_info
+writing looti.egg-info/PKG-INFO
+writing dependency_links to looti.egg-info/dependency_links.txt
+writing top-level names to looti.egg-info/top_level.txt
+reading manifest file 'looti.egg-info/SOURCES.txt'
+writing manifest file 'looti.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/MassiveNus_validation_script.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/OTAlgorithm.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/OTdatasplit.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/__init__.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/datahandle.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/dataplotters.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/emulatorpaths.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/info.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/interpolatingObject.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/interpolators.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/logOT_bary.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/otinterpol.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/otinterpolobj.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/python_example.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/read_file.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/read_yaml.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/tools.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/PlottingModule.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/dictlearn.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/automatic_validation.py -> build/bdist.linux-x86_64/egg/looti
+byte-compiling build/bdist.linux-x86_64/egg/looti/MassiveNus_validation_script.py to MassiveNus_validation_script.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/OTAlgorithm.py to OTAlgorithm.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/OTdatasplit.py to OTdatasplit.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/__init__.py to __init__.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/datahandle.py to datahandle.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/dataplotters.py to dataplotters.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/emulatorpaths.py to emulatorpaths.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/info.py to info.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/interpolatingObject.py to interpolatingObject.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/interpolators.py to interpolators.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/logOT_bary.py to logOT_bary.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/otinterpol.py to otinterpol.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/otinterpolobj.py to otinterpolobj.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/python_example.py to python_example.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/read_file.py to read_file.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/read_yaml.py to read_yaml.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/tools.py to tools.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/PlottingModule.py to PlottingModule.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/dictlearn.py to dictlearn.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/automatic_validation.py to automatic_validation.cpython-38.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+zip_safe flag not set; analyzing archive contents...
+creating 'dist/looti-0.0.0-py3.8.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing looti-0.0.0-py3.8.egg
+Removing /home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/looti-0.0.0-py3.8.egg
+Copying looti-0.0.0-py3.8.egg to /home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages
+looti 0.0.0 is already the active version in easy-install.pth
+
+Installed /home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/looti-0.0.0-py3.8.egg
+Processing dependencies for looti==0.0.0
+Finished processing dependencies for looti==0.0.0
+running script
+* JOBID: 64649.cmaster
+* USER: casas
+* GROUP: casas
+* JOBNAME: mnus_dl
+* SESSIONID: 47061
+* RESOURCESLIST: neednodes=1:ppn=24,nodes=1:ppn=24,walltime=48:00:00
+* RESOURCESUSED: cput=00:26:06,mem=283752kb,vmem=9173964kb,walltime=00:02:34
+* QUEUE: batch
+* JOB EXIT STATUS: 271

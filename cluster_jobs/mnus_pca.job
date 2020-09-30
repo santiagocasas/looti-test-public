@@ -1,0 +1,24 @@
+#!/bin/sh
+#PBS -S /bin/sh
+#PBS -N mnus_pca
+#PBS -j oe 
+#PBS -l nodes=1:ppn=24,walltime=4:00:00
+#PBS -M raphael.baena@cea.fr
+
+module () {
+  eval $(/usr/bin/modulecmd bash $*)
+}
+
+module load intelpython/3-2020.2
+
+cd /n06data/casas/looti-test-public
+echo "activating environment"
+source activate lootiemu
+
+echo "installing code"
+python setup.py install
+echo "running script"
+python MassiveNus_validation_script.py | tee massivenus_pca.log
+
+echo "finished script"
+exit 0

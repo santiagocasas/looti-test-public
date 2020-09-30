@@ -1,0 +1,73 @@
+activating environment
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+installing code
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7fa295867c90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/pytest-runner/
+WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7fa2958434d0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/pytest-runner/
+WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7fa295843790>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/pytest-runner/
+WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7fa2958432d0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/pytest-runner/
+WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7fa295843850>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/pytest-runner/
+ERROR: Could not find a version that satisfies the requirement pytest-runner (from versions: none)
+ERROR: No matching distribution found for pytest-runner
+Traceback (most recent call last):
+  File "/opt/intel/intelpython3-2020.2-902/intelpython3/lib/python3.7/site-packages/setuptools/installer.py", line 128, in fetch_build_egg
+    subprocess.check_call(cmd)
+  File "/opt/intel/intelpython3-2020.2-902/intelpython3/lib/python3.7/subprocess.py", line 363, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['/opt/intel/intelpython3-2020.2-902/intelpython3/bin/python', '-m', 'pip', '--disable-pip-version-check', 'wheel', '--no-deps', '-w', '/tmp/tmpjgossh2a', '--quiet', 'pytest-runner']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "setup.py", line 32, in <module>
+    tests_require=release_info['__tests_require__']
+  File "/opt/intel/intelpython3-2020.2-902/intelpython3/lib/python3.7/site-packages/setuptools/__init__.py", line 160, in setup
+    _install_setup_requires(attrs)
+  File "/opt/intel/intelpython3-2020.2-902/intelpython3/lib/python3.7/site-packages/setuptools/__init__.py", line 155, in _install_setup_requires
+    dist.fetch_build_eggs(dist.setup_requires)
+  File "/opt/intel/intelpython3-2020.2-902/intelpython3/lib/python3.7/site-packages/setuptools/dist.py", line 698, in fetch_build_eggs
+    replace_conflicting=True,
+  File "/opt/intel/intelpython3-2020.2-902/intelpython3/lib/python3.7/site-packages/pkg_resources/__init__.py", line 783, in resolve
+    replace_conflicting=replace_conflicting
+  File "/opt/intel/intelpython3-2020.2-902/intelpython3/lib/python3.7/site-packages/pkg_resources/__init__.py", line 1066, in best_match
+    return self.obtain(req, installer)
+  File "/opt/intel/intelpython3-2020.2-902/intelpython3/lib/python3.7/site-packages/pkg_resources/__init__.py", line 1078, in obtain
+    return installer(requirement)
+  File "/opt/intel/intelpython3-2020.2-902/intelpython3/lib/python3.7/site-packages/setuptools/dist.py", line 754, in fetch_build_egg
+    return fetch_build_egg(self, req)
+  File "/opt/intel/intelpython3-2020.2-902/intelpython3/lib/python3.7/site-packages/setuptools/installer.py", line 130, in fetch_build_egg
+    raise DistutilsError(str(e))
+distutils.errors.DistutilsError: Command '['/opt/intel/intelpython3-2020.2-902/intelpython3/bin/python', '-m', 'pip', '--disable-pip-version-check', 'wheel', '--no-deps', '-w', '/tmp/tmpjgossh2a', '--quiet', 'pytest-runner']' returned non-zero exit status 1.
+running script
+Traceback (most recent call last):
+  File "MassiveNus_validation_script.py", line 13, in <module>
+    from looti import datahandle as dhl
+  File "/automnt/n06data/casas/looti-test-public/looti/datahandle.py", line 6, in <module>
+    from future.utils import viewitems
+ModuleNotFoundError: No module named 'future'
+* JOBID: 64013.cmaster
+* USER: casas
+* GROUP: casas
+* JOBNAME: mnus_pca
+* SESSIONID: 154469
+* RESOURCESLIST: neednodes=1:ppn=24,nodes=1:ppn=24,walltime=01:00:00
+* RESOURCESUSED: cput=00:00:01,mem=62884kb,vmem=159096kb,walltime=00:02:10
+* QUEUE: batch
+* JOB EXIT STATUS: 0

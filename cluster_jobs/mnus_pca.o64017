@@ -1,0 +1,2314 @@
+activating environment
+installing code
+running install
+running bdist_egg
+running egg_info
+writing looti.egg-info/PKG-INFO
+writing dependency_links to looti.egg-info/dependency_links.txt
+writing top-level names to looti.egg-info/top_level.txt
+reading manifest file 'looti.egg-info/SOURCES.txt'
+writing manifest file 'looti.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+copying looti/automatic_validation.py -> build/lib/looti
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/MassiveNus_validation_script.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/OTAlgorithm.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/OTdatasplit.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/PlottingModule.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/__init__.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/datahandle.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/dataplotters.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/dictlearn.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/emulatorpaths.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/info.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/interpolatingObject.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/interpolators.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/logOT_bary.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/otinterpol.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/otinterpolobj.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/python_example.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/read_file.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/read_yaml.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/tools.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/automatic_validation.py -> build/bdist.linux-x86_64/egg/looti
+byte-compiling build/bdist.linux-x86_64/egg/looti/MassiveNus_validation_script.py to MassiveNus_validation_script.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/OTAlgorithm.py to OTAlgorithm.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/OTdatasplit.py to OTdatasplit.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/PlottingModule.py to PlottingModule.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/__init__.py to __init__.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/datahandle.py to datahandle.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/dataplotters.py to dataplotters.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/dictlearn.py to dictlearn.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/emulatorpaths.py to emulatorpaths.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/info.py to info.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/interpolatingObject.py to interpolatingObject.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/interpolators.py to interpolators.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/logOT_bary.py to logOT_bary.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/otinterpol.py to otinterpol.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/otinterpolobj.py to otinterpolobj.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/python_example.py to python_example.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/read_file.py to read_file.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/read_yaml.py to read_yaml.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/tools.py to tools.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/automatic_validation.py to automatic_validation.cpython-38.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+zip_safe flag not set; analyzing archive contents...
+creating 'dist/looti-0.0.0-py3.8.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing looti-0.0.0-py3.8.egg
+Removing /home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/looti-0.0.0-py3.8.egg
+Copying looti-0.0.0-py3.8.egg to /home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages
+looti 0.0.0 is already the active version in easy-install.pth
+
+Installed /home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/looti-0.0.0-py3.8.egg
+Processing dependencies for looti==0.0.0
+Finished processing dependencies for looti==0.0.0
+running script
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.401486830834377e-17 
+ global mean max error:  0.0371454687175778 
+ global max rmse:  0.07018260878876792 
+ global mean rmse:  0.022987710105149054 
+ global var rmse:  0.00021599021965819227
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.03714548530141293 
+ global max rmse:  0.0701825427466145 
+ global mean rmse:  0.022987707224938047 
+ global var rmse:  0.00021598996203139572
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.070817756958908e-17 
+ global mean max error:  0.03719569118453226 
+ global max rmse:  0.06871202379342285 
+ global mean rmse:  0.022981586404864918 
+ global var rmse:  0.00021561513203880752
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.031412489292658e-17 
+ global mean max error:  0.03714541480315859 
+ global max rmse:  0.07018264945269183 
+ global mean rmse:  0.022987712065297903 
+ global var rmse:  0.0002159903602432994
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.037145467349207 
+ global max rmse:  0.07018256578937443 
+ global mean rmse:  0.02298770974824023 
+ global var rmse:  0.00021599015612626792
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.03719574354089685 
+ global max rmse:  0.06871197352376493 
+ global mean rmse:  0.022981584308325705 
+ global var rmse:  0.00021561496390820755
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.037603247155926715 
+ global max rmse:  0.07872921452001075 
+ global mean rmse:  0.023339237742639032 
+ global var rmse:  0.00024927671699103294
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.03760314510820918 
+ global max rmse:  0.07872922632737812 
+ global mean rmse:  0.023339238603289063 
+ global var rmse:  0.00024927678430240215
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.33066907387547e-17 
+ global mean max error:  0.037668906542436535 
+ global max rmse:  0.0773861161482339 
+ global mean rmse:  0.023343749606851087 
+ global var rmse:  0.00024886220193128097
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  8.141635513917814e-17 
+ global mean max error:  0.037145409849676465 
+ global max rmse:  0.07018262437718441 
+ global mean rmse:  0.02298770983422555 
+ global var rmse:  0.00021599015789616928
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.700743415417189e-17 
+ global mean max error:  0.03714535452666449 
+ global max rmse:  0.0701826530394556 
+ global mean rmse:  0.022987712122047855 
+ global var rmse:  0.0002159903334822251
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.070817756958908e-17 
+ global mean max error:  0.03719582488565161 
+ global max rmse:  0.06871205586466646 
+ global mean rmse:  0.02298158964842846 
+ global var rmse:  0.00021561542319566197
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.551115123125783e-17 
+ global mean max error:  0.037171725982474674 
+ global max rmse:  0.07065526259201033 
+ global mean rmse:  0.023001585145533455 
+ global var rmse:  0.0002170695307607616
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.03717167571814006 
+ global max rmse:  0.0706552720336505 
+ global mean rmse:  0.023001585429466523 
+ global var rmse:  0.00021706956087381594
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.810966440042345e-17 
+ global mean max error:  0.037695260385955526 
+ global max rmse:  0.07710820911023233 
+ global mean rmse:  0.02334593684632761 
+ global var rmse:  0.0002488174272388544
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  9.251858538542972e-17 
+ global mean max error:  0.03717170971586043 
+ global max rmse:  0.07065522406901163 
+ global mean rmse:  0.023001584076672636 
+ global var rmse:  0.00021706941583545328
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.03717167127476604 
+ global max rmse:  0.07065517200370026 
+ global mean rmse:  0.023001584999943033 
+ global var rmse:  0.0002170694923841877
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.03722667363734142 
+ global max rmse:  0.06851928321324877 
+ global mean rmse:  0.022984333081826618 
+ global var rmse:  0.00021585491937446571
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.070817756958908e-17 
+ global mean max error:  0.0371716638833647 
+ global max rmse:  0.07065531808790813 
+ global mean rmse:  0.023001586345105757 
+ global var rmse:  0.00021706963789176642
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.03717172741476482 
+ global max rmse:  0.07065527307613248 
+ global mean rmse:  0.023001585500358794 
+ global var rmse:  0.00021706955280397818
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.037226714729925975 
+ global max rmse:  0.06851916474431632 
+ global mean rmse:  0.02298433503015947 
+ global var rmse:  0.00021585509924967002
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.401486830834377e-17 
+ global mean max error:  0.03717173092618544 
+ global max rmse:  0.07065497338967268 
+ global mean rmse:  0.023001571463351304 
+ global var rmse:  0.00021706835598954484
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.33066907387547e-17 
+ global mean max error:  0.03717168127375448 
+ global max rmse:  0.07065526683211848 
+ global mean rmse:  0.023001585350671813 
+ global var rmse:  0.0002170695405427204
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.5905203907920326e-17 
+ global mean max error:  0.03722672113196819 
+ global max rmse:  0.06851946808275905 
+ global mean rmse:  0.02298434099149099 
+ global var rmse:  0.00021585557782210956
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.850371707708594e-17 
+ global mean max error:  0.039280517668508014 
+ global max rmse:  0.06252202016528678 
+ global mean rmse:  0.023710656454418815 
+ global var rmse:  0.00024156858698318878
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.551115123125783e-17 
+ global mean max error:  0.03928034231660486 
+ global max rmse:  0.06252201903531898 
+ global mean rmse:  0.023710655486340368 
+ global var rmse:  0.00024156858869593445
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.401486830834377e-17 
+ global mean max error:  0.039644718627512086 
+ global max rmse:  0.06351290454234539 
+ global mean rmse:  0.023948882844659247 
+ global var rmse:  0.00024045467933569412
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.03928147932717336 
+ global max rmse:  0.06252444167520489 
+ global mean rmse:  0.023711369516824433 
+ global var rmse:  0.00024159412516884312
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.039281465800890744 
+ global max rmse:  0.06252449808891777 
+ global mean rmse:  0.023711392772612725 
+ global var rmse:  0.00024159478633801204
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.551115123125783e-17 
+ global mean max error:  0.039644798768966615 
+ global max rmse:  0.06351290709530263 
+ global mean rmse:  0.023948884218880116 
+ global var rmse:  0.00024045469425333074
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.03865684206684547 
+ global max rmse:  0.06101689852115807 
+ global mean rmse:  0.023323458608752734 
+ global var rmse:  0.00022898267887357248
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.03865682988724111 
+ global max rmse:  0.061016874271454816 
+ global mean rmse:  0.023323454521589047 
+ global var rmse:  0.0002289825316755542
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.03964468725240691 
+ global max rmse:  0.06351290362301919 
+ global mean rmse:  0.023948882535289696 
+ global var rmse:  0.00024045467361116766
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.0732155904709847e-16 
+ global mean max error:  0.038656847840552816 
+ global max rmse:  0.061016857494589835 
+ global mean rmse:  0.023323446915694417 
+ global var rmse:  0.00022898249029415502
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.03865692764665136 
+ global max rmse:  0.06101686801423662 
+ global mean rmse:  0.02332345338826623 
+ global var rmse:  0.0002289824944392591
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.031412489292658e-17 
+ global mean max error:  0.039644721168258255 
+ global max rmse:  0.06351291026944911 
+ global mean rmse:  0.023948884811360358 
+ global var rmse:  0.0002404547171735784
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  9.251858538542972e-17 
+ global mean max error:  0.03927475002730088 
+ global max rmse:  0.06230143784080716 
+ global mean rmse:  0.023711650348764376 
+ global var rmse:  0.00024090737438465785
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.03927493908800723 
+ global max rmse:  0.06230143817803459 
+ global mean rmse:  0.02371165185885051 
+ global var rmse:  0.00024090743966590373
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.039956743135869104 
+ global max rmse:  0.06396276855921135 
+ global mean rmse:  0.024133250209432022 
+ global var rmse:  0.0002431637802673641
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.03866105468984071 
+ global max rmse:  0.06081118684441775 
+ global mean rmse:  0.02332477465038907 
+ global var rmse:  0.00022821756302755265
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  8.141635513917814e-17 
+ global mean max error:  0.03866108984003577 
+ global max rmse:  0.060811185289806564 
+ global mean rmse:  0.023324770970883466 
+ global var rmse:  0.00022821756243435632
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.03995671034851822 
+ global max rmse:  0.06396271087619221 
+ global mean rmse:  0.02413322591448563 
+ global var rmse:  0.00024316339741132302
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.0386609178207151 
+ global max rmse:  0.0608110766930183 
+ global mean rmse:  0.023324742513918077 
+ global var rmse:  0.00022821698307400604
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.03866112200146808 
+ global max rmse:  0.06081118756489997 
+ global mean rmse:  0.02332477559114876 
+ global var rmse:  0.00022821757269062123
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.590520390792032e-17 
+ global mean max error:  0.03995651809379104 
+ global max rmse:  0.06396275744710092 
+ global mean rmse:  0.02413324710463703 
+ global var rmse:  0.0002431636932420004
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.038661071699947695 
+ global max rmse:  0.06081121178556487 
+ global mean rmse:  0.02332478049813833 
+ global var rmse:  0.00022821773355990944
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.1102230246251569e-17 
+ global mean max error:  0.038660987369815374 
+ global max rmse:  0.060811186130913554 
+ global mean rmse:  0.0233247754140032 
+ global var rmse:  0.0002282175704978968
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.0399566856475255 
+ global max rmse:  0.06396281657917034 
+ global mean rmse:  0.024133267141227377 
+ global var rmse:  0.00024316406965608996
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.031412489292658e-17 
+ global mean max error:  0.06041702179967644 
+ global max rmse:  0.18774402740815652 
+ global mean rmse:  0.03283976253338556 
+ global var rmse:  0.0012753865738903715
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.590520390792032e-17 
+ global mean max error:  0.05999782294908369 
+ global max rmse:  0.18515910649271627 
+ global mean rmse:  0.032529189001900355 
+ global var rmse:  0.0012399724405364734
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.031412489292658e-17 
+ global mean max error:  0.06203768379411155 
+ global max rmse:  0.20955182111860854 
+ global mean rmse:  0.03374055878709658 
+ global var rmse:  0.001549895068406025
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.06041540759924564 
+ global max rmse:  0.18773401151031913 
+ global mean rmse:  0.03283865603210059 
+ global var rmse:  0.0012752500126788427
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.810966440042345e-17 
+ global mean max error:  0.060415319805782255 
+ global max rmse:  0.18773394556972134 
+ global mean rmse:  0.03283865117680283 
+ global var rmse:  0.0012752492010519912
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.062393185402345626 
+ global max rmse:  0.21167393676892152 
+ global mean rmse:  0.03400812014944076 
+ global var rmse:  0.001581837774441869
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.810966440042345e-17 
+ global mean max error:  0.06041796770646909 
+ global max rmse:  0.18775009153202626 
+ global mean rmse:  0.03284059637539161 
+ global var rmse:  0.0012754738021251285
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.2204460492503132e-17 
+ global mean max error:  0.06041843899358586 
+ global max rmse:  0.1877529656719906 
+ global mean rmse:  0.032840875794865866 
+ global var rmse:  0.0012755119745514246
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.06203764882136065 
+ global max rmse:  0.20955148170250687 
+ global mean rmse:  0.03374052088287393 
+ global var rmse:  0.0015498900736056905
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.06041779502665016 
+ global max rmse:  0.18774828228288867 
+ global mean rmse:  0.03284042775371139 
+ global var rmse:  0.0012754499814249382
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.2204460492503132e-17 
+ global mean max error:  0.06041780071177683 
+ global max rmse:  0.18774862706824538 
+ global mean rmse:  0.03284046087066217 
+ global var rmse:  0.0012754545413392253
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.06203757459047114 
+ global max rmse:  0.20955061255437665 
+ global mean rmse:  0.033740494623047505 
+ global var rmse:  0.0015498786681129523
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.06039455013251267 
+ global max rmse:  0.1874151254797503 
+ global mean rmse:  0.0327914039796154 
+ global var rmse:  0.0012704250511701696
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.06039466844443697 
+ global max rmse:  0.18741510194300004 
+ global mean rmse:  0.03279140281699293 
+ global var rmse:  0.00127042476218668
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.590520390792032e-17 
+ global mean max error:  0.06296450720928451 
+ global max rmse:  0.21890542168249202 
+ global mean rmse:  0.034323725572362566 
+ global var rmse:  0.0016812596556735368
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  6.29126380620922e-17 
+ global mean max error:  0.06039448047057527 
+ global max rmse:  0.18741388893560443 
+ global mean rmse:  0.0327913049938334 
+ global var rmse:  0.0012704092306667196
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.06039434978310941 
+ global max rmse:  0.18741155461793566 
+ global mean rmse:  0.03279120036405126 
+ global var rmse:  0.0012703816097374753
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.06296448405021404 
+ global max rmse:  0.2189043592056087 
+ global mean rmse:  0.03432369867773253 
+ global var rmse:  0.0016812451323265703
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.2204460492503132e-17 
+ global mean max error:  0.06039613157922839 
+ global max rmse:  0.1874236280123715 
+ global mean rmse:  0.03279244584076294 
+ global var rmse:  0.0012705433456529657
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.4432899320127036e-16 
+ global mean max error:  0.05998084459510199 
+ global max rmse:  0.18488861920601954 
+ global mean rmse:  0.03248425959933317 
+ global var rmse:  0.0012358549084416051
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.590520390792032e-17 
+ global mean max error:  0.06262350508540965 
+ global max rmse:  0.21685220892366297 
+ global mean rmse:  0.034066634466474385 
+ global var rmse:  0.0016497182973003698
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.810966440042345e-17 
+ global mean max error:  0.06039573172648564 
+ global max rmse:  0.18742135121734763 
+ global mean rmse:  0.03279218277735288 
+ global var rmse:  0.0012705120891554063
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.2204460492503132e-17 
+ global mean max error:  0.060395824533690974 
+ global max rmse:  0.1874219503771907 
+ global mean rmse:  0.03279223412288923 
+ global var rmse:  0.0012705198757933958
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.06296395607792762 
+ global max rmse:  0.2189022423397278 
+ global mean rmse:  0.03432330342145469 
+ global var rmse:  0.001681209788655778
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.3692750637043598e-16 
+ global mean max error:  0.04899855449353889 
+ global max rmse:  0.15427157711479084 
+ global mean rmse:  0.027428956612632664 
+ global var rmse:  0.000824996059880219
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.04899856544092946 
+ global max rmse:  0.15427149004683605 
+ global mean rmse:  0.027428940992322886 
+ global var rmse:  0.00082499544672513
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.04950656242492828 
+ global max rmse:  0.15725181521272114 
+ global mean rmse:  0.027697844394257945 
+ global var rmse:  0.0008539924753085851
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.0362081563168128e-16 
+ global mean max error:  0.047721867084538655 
+ global max rmse:  0.13308396060571076 
+ global mean rmse:  0.026527582940082027 
+ global var rmse:  0.0006565681367062753
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.04899857735640865 
+ global max rmse:  0.1542715143720361 
+ global mean rmse:  0.02742894279195803 
+ global var rmse:  0.0008249956571186628
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  9.251858538542972e-17 
+ global mean max error:  0.04811650480442718 
+ global max rmse:  0.1355948525126602 
+ global mean rmse:  0.026760695943543963 
+ global var rmse:  0.000677628627196282
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.551115123125783e-17 
+ global mean max error:  0.048998553192134274 
+ global max rmse:  0.1542714830127291 
+ global mean rmse:  0.02742894185775265 
+ global var rmse:  0.0008249953621575265
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  6.29126380620922e-17 
+ global mean max error:  0.04899861333844187 
+ global max rmse:  0.15427190679474517 
+ global mean rmse:  0.027428990970342956 
+ global var rmse:  0.0008249988238016666
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  8.511709855459534e-17 
+ global mean max error:  0.049506551491924886 
+ global max rmse:  0.15725190357194305 
+ global mean rmse:  0.027697849024843013 
+ global var rmse:  0.000853993264103055
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.04899855442609951 
+ global max rmse:  0.15427148831289603 
+ global mean rmse:  0.027428940413858623 
+ global var rmse:  0.0008249954168322889
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.04899857220913069 
+ global max rmse:  0.15427149472127924 
+ global mean rmse:  0.027428941584999846 
+ global var rmse:  0.0008249954781262608
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.04950658931693928 
+ global max rmse:  0.15725181949828218 
+ global mean rmse:  0.027697844572446523 
+ global var rmse:  0.0008539925118283863
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.04881694897089529 
+ global max rmse:  0.15255680696537033 
+ global mean rmse:  0.027329416237940732 
+ global var rmse:  0.0008062124792469098
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.048816956966552014 
+ global max rmse:  0.15255680275553649 
+ global mean rmse:  0.027329415876791167 
+ global var rmse:  0.000806212423973698
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.0362081563168128e-16 
+ global mean max error:  0.04973595564058411 
+ global max rmse:  0.15775007300126417 
+ global mean rmse:  0.02782070313796166 
+ global var rmse:  0.0008566373523271836
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.7023419710919068e-16 
+ global mean max error:  0.04752811649971311 
+ global max rmse:  0.13149235993775407 
+ global mean rmse:  0.026424862236345832 
+ global var rmse:  0.0006408592104169222
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.04752916837138351 
+ global max rmse:  0.1315100789026495 
+ global mean rmse:  0.02642559143527975 
+ global var rmse:  0.0006409857744066567
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.1842378929335003e-16 
+ global mean max error:  0.04973590227558227 
+ global max rmse:  0.15775006508401224 
+ global mean rmse:  0.02782070221323444 
+ global var rmse:  0.0008566373017217584
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.401486830834377e-17 
+ global mean max error:  0.0488169369173097 
+ global max rmse:  0.15255678249815904 
+ global mean rmse:  0.02732941418451552 
+ global var rmse:  0.000806212266426674
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.590520390792032e-17 
+ global mean max error:  0.04881690728853503 
+ global max rmse:  0.15255676243176597 
+ global mean rmse:  0.027329415722160195 
+ global var rmse:  0.0008062120206340043
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.049735911773364685 
+ global max rmse:  0.15775009459147843 
+ global mean rmse:  0.02782070508131209 
+ global var rmse:  0.000856637542940493
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.048816902538876945 
+ global max rmse:  0.15255681468115698 
+ global mean rmse:  0.02732941792179808 
+ global var rmse:  0.0008062125507063003
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  6.661338147750939e-17 
+ global mean max error:  0.048816908439107375 
+ global max rmse:  0.1525568108875975 
+ global mean rmse:  0.027329416023012035 
+ global var rmse:  0.000806212499131562
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.401486830834377e-17 
+ global mean max error:  0.04973571306129634 
+ global max rmse:  0.15774951574506652 
+ global mean rmse:  0.02782065583019904 
+ global var rmse:  0.0008566327711031263
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.08346826815406647 
+ global max rmse:  0.2904076281015065 
+ global mean rmse:  0.04160612539808809 
+ global var rmse:  0.002996999588187755
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  6.661338147750939e-17 
+ global mean max error:  0.0834683242179419 
+ global max rmse:  0.29040765710549826 
+ global mean rmse:  0.04160612692268507 
+ global var rmse:  0.002997000119997783
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.1102230246251565e-16 
+ global mean max error:  0.08472098935565649 
+ global max rmse:  0.2996360922390698 
+ global mean rmse:  0.0425176870170432 
+ global var rmse:  0.0032298809312283345
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.08346836529595188 
+ global max rmse:  0.29040782096752343 
+ global mean rmse:  0.04160613567931869 
+ global var rmse:  0.00299700317083844
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.1472304587793285e-16 
+ global mean max error:  0.08346803110120206 
+ global max rmse:  0.2904054846111311 
+ global mean rmse:  0.04160600089882701 
+ global var rmse:  0.0029969582940957565
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.08349102755625017 
+ global max rmse:  0.29064938780314703 
+ global mean rmse:  0.041619782223591965 
+ global var rmse:  0.003001604272942409
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  9.62193288008469e-17 
+ global mean max error:  0.08346831547827455 
+ global max rmse:  0.29040764815343895 
+ global mean rmse:  0.041606126172316155 
+ global var rmse:  0.0029969999996573553
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.810966440042345e-17 
+ global mean max error:  0.08346837713258481 
+ global max rmse:  0.2904076512675516 
+ global mean rmse:  0.0416061264841542 
+ global var rmse:  0.002996999955672528
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.083490961719823 
+ global max rmse:  0.2906494112815807 
+ global mean rmse:  0.041619785232561476 
+ global var rmse:  0.0030016048760152262
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  6.29126380620922e-17 
+ global mean max error:  0.08346849434669425 
+ global max rmse:  0.29040991604485034 
+ global mean rmse:  0.04160624193333653 
+ global var rmse:  0.002997041921850569
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.0362081563168128e-16 
+ global mean max error:  0.08346814347646897 
+ global max rmse:  0.2904075126962617 
+ global mean rmse:  0.04160612427429601 
+ global var rmse:  0.0029969980883099378
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.08349084954029366 
+ global max rmse:  0.2906470253807654 
+ global mean rmse:  0.04161964555686506 
+ global var rmse:  0.003001558701177213
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.551115123125783e-17 
+ global mean max error:  0.08350090925816221 
+ global max rmse:  0.29063688943971266 
+ global mean rmse:  0.04161481456581251 
+ global var rmse:  0.0030017810189430743
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.0732155904709847e-16 
+ global mean max error:  0.0835008990525176 
+ global max rmse:  0.290636888661541 
+ global mean rmse:  0.041614814307579726 
+ global var rmse:  0.0030017810256651894
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  8.511709855459534e-17 
+ global mean max error:  0.08440266671520745 
+ global max rmse:  0.2999493145021016 
+ global mean rmse:  0.04215097349928673 
+ global var rmse:  0.003183692137860356
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.031412489292658e-17 
+ global mean max error:  0.08350093919248454 
+ global max rmse:  0.2906366921873038 
+ global mean rmse:  0.041614803502889625 
+ global var rmse:  0.003001777216976089
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  6.29126380620922e-17 
+ global mean max error:  0.08350094839362608 
+ global max rmse:  0.29063621654884125 
+ global mean rmse:  0.04161477425078101 
+ global var rmse:  0.0030017680292423257
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.08440264715624198 
+ global max rmse:  0.29994953144219716 
+ global mean rmse:  0.04215097328654928 
+ global var rmse:  0.0031836954193529624
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.08350082710047488 
+ global max rmse:  0.29063688754544453 
+ global mean rmse:  0.04161481394059121 
+ global var rmse:  0.0030017809478195823
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.3322676295501878e-16 
+ global mean max error:  0.08350041776839941 
+ global max rmse:  0.29063679074083476 
+ global mean rmse:  0.04161481176481037 
+ global var rmse:  0.003001779238967818
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.08440269637597551 
+ global max rmse:  0.2999494089313582 
+ global mean rmse:  0.04215097286850812 
+ global var rmse:  0.0031836935887256824
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.08350099869350618 
+ global max rmse:  0.29063690047213014 
+ global mean rmse:  0.041614816500536354 
+ global var rmse:  0.003001781286868838
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.401486830834377e-17 
+ global mean max error:  0.08350093507516006 
+ global max rmse:  0.2906367055643738 
+ global mean rmse:  0.04161480496796818 
+ global var rmse:  0.0030017775308534837
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.810966440042345e-17 
+ global mean max error:  0.08440257466096433 
+ global max rmse:  0.29994940565263417 
+ global mean rmse:  0.04215097401137495 
+ global var rmse:  0.0031836935640080317
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.06161363059850552 
+ global max rmse:  0.17347225561340635 
+ global mean rmse:  0.03359059148822984 
+ global var rmse:  0.0013032198340100578
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.061613698006581466 
+ global max rmse:  0.17347241745485736 
+ global mean rmse:  0.03359059790476304 
+ global var rmse:  0.0013032216337902577
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.062187560411152344 
+ global max rmse:  0.1821263146433584 
+ global mean rmse:  0.03387925379504422 
+ global var rmse:  0.001398682337056419
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  8.511709855459534e-17 
+ global mean max error:  0.06161363966213882 
+ global max rmse:  0.17347222087986555 
+ global mean rmse:  0.033590590329069483 
+ global var rmse:  0.0013032194693994028
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.401486830834377e-17 
+ global mean max error:  0.06161367719247994 
+ global max rmse:  0.17347230680305012 
+ global mean rmse:  0.03359059336922101 
+ global var rmse:  0.0013032204004009053
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.401486830834377e-17 
+ global mean max error:  0.06218757090823775 
+ global max rmse:  0.1821263532317488 
+ global mean rmse:  0.033879256864960725 
+ global var rmse:  0.0013986828470345864
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.06161365947417952 
+ global max rmse:  0.17347223524065314 
+ global mean rmse:  0.03359059091783703 
+ global var rmse:  0.001303219618935751
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.06161365574144127 
+ global max rmse:  0.17347226383257378 
+ global mean rmse:  0.03359059188027221 
+ global var rmse:  0.001303219929211168
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.06196633789498208 
+ global max rmse:  0.18827701876195657 
+ global mean rmse:  0.03374913527132408 
+ global var rmse:  0.0014597818596626267
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.06161372981236749 
+ global max rmse:  0.17347265995016573 
+ global mean rmse:  0.033590606750898935 
+ global var rmse:  0.0013032242474445312
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.551115123125783e-17 
+ global mean max error:  0.06161366734184726 
+ global max rmse:  0.1734727147521581 
+ global mean rmse:  0.033590608970389 
+ global var rmse:  0.0013032248533552334
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.06218756468798241 
+ global max rmse:  0.1821264509891359 
+ global mean rmse:  0.03387925927012346 
+ global var rmse:  0.0013986839156602013
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.06163277457186746 
+ global max rmse:  0.17344195575947224 
+ global mean rmse:  0.03360168858589618 
+ global var rmse:  0.0013035534741546702
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.06163280587274867 
+ global max rmse:  0.17344177658561932 
+ global mean rmse:  0.03360168256072062 
+ global var rmse:  0.001303551568220478
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.06279559780242121 
+ global max rmse:  0.19135909238036297 
+ global mean rmse:  0.03419988813092434 
+ global var rmse:  0.0015071141023410503
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.0616327988423671 
+ global max rmse:  0.17344207654490573 
+ global mean rmse:  0.033601689304016163 
+ global var rmse:  0.0013035546154590036
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  9.62193288008469e-17 
+ global mean max error:  0.06163274645622077 
+ global max rmse:  0.17344163710288812 
+ global mean rmse:  0.03360167756636701 
+ global var rmse:  0.0013035500483003365
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.850371707708594e-17 
+ global mean max error:  0.06279562183602297 
+ global max rmse:  0.19135912517031353 
+ global mean rmse:  0.03419988879868603 
+ global var rmse:  0.0015071144797894457
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.06163277803093717 
+ global max rmse:  0.17344175839433434 
+ global mean rmse:  0.03360168200254684 
+ global var rmse:  0.0013035513655679008
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.061611525923665166 
+ global max rmse:  0.18231976366954183 
+ global mean rmse:  0.03355596768202614 
+ global var rmse:  0.001390889541961535
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.06262030114390706 
+ global max rmse:  0.19855580910882012 
+ global mean rmse:  0.03410636430388272 
+ global var rmse:  0.0015850371140132618
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  8.881784197001253e-17 
+ global mean max error:  0.06163270958635516 
+ global max rmse:  0.17344165822548036 
+ global mean rmse:  0.03360167912508744 
+ global var rmse:  0.0013035503037813765
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.06163276800612904 
+ global max rmse:  0.17344179709424914 
+ global mean rmse:  0.03360168343630206 
+ global var rmse:  0.0013035517742470682
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.06279562308348281 
+ global max rmse:  0.19135912793888335 
+ global mean rmse:  0.03419988907430062 
+ global var rmse:  0.0015071145221192206
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.05341781327462322 
+ global max rmse:  0.2342841350906297 
+ global mean rmse:  0.02895019293569081 
+ global var rmse:  0.0016152585858397622
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.33066907387547e-17 
+ global mean max error:  0.053417815879863786 
+ global max rmse:  0.23428425546265058 
+ global mean rmse:  0.02895019809962315 
+ global var rmse:  0.0016152602802435535
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.181040781584064e-17 
+ global mean max error:  0.05386216204321713 
+ global max rmse:  0.24101299060322431 
+ global mean rmse:  0.029232386966373394 
+ global var rmse:  0.001711441726645975
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.05341780837418589 
+ global max rmse:  0.23428467289305624 
+ global mean rmse:  0.028950215857937358 
+ global var rmse:  0.0016152661262712233
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.33066907387547e-17 
+ global mean max error:  0.053417806310326436 
+ global max rmse:  0.23428426639274064 
+ global mean rmse:  0.028950198823932825 
+ global var rmse:  0.001615260435918906
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.053862101828141565 
+ global max rmse:  0.2410129034998362 
+ global mean rmse:  0.02923238399866686 
+ global var rmse:  0.0017114404628330324
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.1810407815840646e-17 
+ global mean max error:  0.05341777401993311 
+ global max rmse:  0.2342843093968898 
+ global mean rmse:  0.02895020031338237 
+ global var rmse:  0.001615261036532692
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.700743415417189e-17 
+ global mean max error:  0.05341794780997908 
+ global max rmse:  0.23428467753438842 
+ global mean rmse:  0.028950216035428484 
+ global var rmse:  0.0016152662139574143
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.05386229319939923 
+ global max rmse:  0.24101309391907952 
+ global mean rmse:  0.029232391507247525 
+ global var rmse:  0.0017114432199607278
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.5905203907920326e-17 
+ global mean max error:  0.053417835103892454 
+ global max rmse:  0.2342839038305651 
+ global mean rmse:  0.02895018233267492 
+ global var rmse:  0.0016152554356630743
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.9605947323337513e-17 
+ global mean max error:  0.053417761531229506 
+ global max rmse:  0.2342856719193508 
+ global mean rmse:  0.028950259314664474 
+ global var rmse:  0.0016152800302546577
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.05386227272304474 
+ global max rmse:  0.24101297937383204 
+ global mean rmse:  0.029232386143275186 
+ global var rmse:  0.0017114415676535578
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.053428813262933667 
+ global max rmse:  0.23462678850591065 
+ global mean rmse:  0.028972476010940173 
+ global var rmse:  0.0016193890755347071
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.0534288585464008 
+ global max rmse:  0.23462676413036715 
+ global mean rmse:  0.028972475042613594 
+ global var rmse:  0.0016193887338790587
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.9605947323337513e-17 
+ global mean max error:  0.054479924107745555 
+ global max rmse:  0.2506227099763517 
+ global mean rmse:  0.029640740507938156 
+ global var rmse:  0.0018533256816491634
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.05342883802990641 
+ global max rmse:  0.23462677131638082 
+ global mean rmse:  0.028972475244699144 
+ global var rmse:  0.0016193888400909235
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.070817756958908e-17 
+ global mean max error:  0.053428643747720064 
+ global max rmse:  0.23462676202209895 
+ global mean rmse:  0.028972474639549505 
+ global var rmse:  0.0016193887106740331
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.33066907387547e-17 
+ global mean max error:  0.05447995436738663 
+ global max rmse:  0.25062241922366674 
+ global mean rmse:  0.029640728616496023 
+ global var rmse:  0.0018533212922665825
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.053428846369973325 
+ global max rmse:  0.2346267905190808 
+ global mean rmse:  0.0289724759692152 
+ global var rmse:  0.001619389109905984
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.5905203907920326e-17 
+ global mean max error:  0.054030571342441054 
+ global max rmse:  0.24295241025916728 
+ global mean rmse:  0.029310746739720676 
+ global var rmse:  0.0017388268141019375
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417189e-17 
+ global mean max error:  0.05447998924867968 
+ global max rmse:  0.2506229780736634 
+ global mean rmse:  0.029640751972824245 
+ global var rmse:  0.0018533297257896902
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.5905203907920326e-17 
+ global mean max error:  0.05342883237344842 
+ global max rmse:  0.23462677005895236 
+ global mean rmse:  0.028972474869374053 
+ global var rmse:  0.0016193888214434706
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.33066907387547e-17 
+ global mean max error:  0.05342886568375566 
+ global max rmse:  0.23462674899748356 
+ global mean rmse:  0.02897247385017072 
+ global var rmse:  0.0016193885300300318
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.9605947323337513e-17 
+ global mean max error:  0.05447989643029343 
+ global max rmse:  0.2506224493922106 
+ global mean rmse:  0.029640729320498882 
+ global var rmse:  0.0018533217528997952
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.810966440042345e-17 
+ global mean max error:  0.035500969994949574 
+ global max rmse:  0.03724851013927639 
+ global mean rmse:  0.020819765653342866 
+ global var rmse:  0.00010643311687878779
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.03550097695894081 
+ global max rmse:  0.03724851089475329 
+ global mean rmse:  0.02081976633880927 
+ global var rmse:  0.00010643313276364558
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.2204460492503132e-17 
+ global mean max error:  0.03578170091035251 
+ global max rmse:  0.03760070581415866 
+ global mean rmse:  0.020874382084782223 
+ global var rmse:  0.00011058627630218303
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.810966440042345e-17 
+ global mean max error:  0.03550095697528672 
+ global max rmse:  0.03724851168656226 
+ global mean rmse:  0.020819766813204587 
+ global var rmse:  0.00010643313688224556
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.03550095007265871 
+ global max rmse:  0.037248510914187474 
+ global mean rmse:  0.020819766113311194 
+ global var rmse:  0.00010643312858405486
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.590520390792032e-17 
+ global mean max error:  0.03578170247183506 
+ global max rmse:  0.037600707270209484 
+ global mean rmse:  0.02087438318345959 
+ global var rmse:  0.000110586318139933
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.03550096635450215 
+ global max rmse:  0.03724851380351214 
+ global mean rmse:  0.02081976696892996 
+ global var rmse:  0.00010643315819224167
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.035500961327977816 
+ global max rmse:  0.03724850653251943 
+ global mean rmse:  0.02081976411617591 
+ global var rmse:  0.00010643309017963278
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.035781679188171905 
+ global max rmse:  0.03760069850801793 
+ global mean rmse:  0.020874379672727535 
+ global var rmse:  0.00011058615291025663
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.2204460492503132e-17 
+ global mean max error:  0.03550097091470231 
+ global max rmse:  0.03724851151626646 
+ global mean rmse:  0.02081976678138797 
+ global var rmse:  0.00010643310560176892
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.035500971890885774 
+ global max rmse:  0.037248504555243846 
+ global mean rmse:  0.020819765765589155 
+ global var rmse:  0.00010643308034222663
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  2.2204460492503132e-17 
+ global mean max error:  0.03578171646534072 
+ global max rmse:  0.03760070585516288 
+ global mean rmse:  0.02087438251284426 
+ global var rmse:  0.00011058628929042006
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.031412489292658e-17 
+ global mean max error:  0.035575174415674274 
+ global max rmse:  0.03727457397092884 
+ global mean rmse:  0.020837442062197436 
+ global var rmse:  0.00010665277321503538
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.03557513229064603 
+ global max rmse:  0.03727457354298743 
+ global mean rmse:  0.020837440275881084 
+ global var rmse:  0.0001066527373311507
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.960594732333751e-17 
+ global mean max error:  0.035953369502169916 
+ global max rmse:  0.03942469924526355 
+ global mean rmse:  0.020917508840581266 
+ global var rmse:  0.0001130532718322153
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.035575140656293115 
+ global max rmse:  0.03727457163261939 
+ global mean rmse:  0.020837441917667364 
+ global var rmse:  0.00010665273905999271
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.2204460492503132e-17 
+ global mean max error:  0.03557518904965658 
+ global max rmse:  0.03727457942035204 
+ global mean rmse:  0.02083744326225628 
+ global var rmse:  0.00010665282477219537
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.810966440042345e-17 
+ global mean max error:  0.035953359218249874 
+ global max rmse:  0.03942467469522346 
+ global mean rmse:  0.020917508298673112 
+ global var rmse:  0.0001130532407295744
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.03557520080093255 
+ global max rmse:  0.037274574042949364 
+ global mean rmse:  0.020837442096803816 
+ global var rmse:  0.00010665277461140493
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.03557516657163147 
+ global max rmse:  0.03727457398874465 
+ global mean rmse:  0.020837441595584396 
+ global var rmse:  0.00010665276483503917
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.590520390792032e-17 
+ global mean max error:  0.035953395657830116 
+ global max rmse:  0.039424679113053744 
+ global mean rmse:  0.020917508398357893 
+ global var rmse:  0.00011305324816630897
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.3306690738754695e-17 
+ global mean max error:  0.03557516202858779 
+ global max rmse:  0.037274573353522064 
+ global mean rmse:  0.020837442308592666 
+ global var rmse:  0.00010665276694794896
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.4802973661668757e-17 
+ global mean max error:  0.03557507857556042 
+ global max rmse:  0.03727456755660387 
+ global mean rmse:  0.020837440818134618 
+ global var rmse:  0.0001066527060407944
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.2204460492503132e-17 
+ global mean max error:  0.03595331769207591 
+ global max rmse:  0.03942468135684597 
+ global mean rmse:  0.020917508614593447 
+ global var rmse:  0.0001130532461864351
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.0732155904709847e-16 
+ global mean max error:  0.04452981879472668 
+ global max rmse:  0.06314465606107429 
+ global mean rmse:  0.024792349550884888 
+ global var rmse:  0.0003054605517967911
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.1472304587793285e-16 
+ global mean max error:  0.04452978037232489 
+ global max rmse:  0.06314480479563607 
+ global mean rmse:  0.024792354152720644 
+ global var rmse:  0.0003054606800826366
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.04453195125434437 
+ global max rmse:  0.06316827906441044 
+ global mean rmse:  0.024793200819692274 
+ global var rmse:  0.0003054776965654662
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  9.251858538542972e-17 
+ global mean max error:  0.044529763379684714 
+ global max rmse:  0.06314482278254889 
+ global mean rmse:  0.024792354244787738 
+ global var rmse:  0.00030546068099742053
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  3.700743415417188e-17 
+ global mean max error:  0.04494079763627992 
+ global max rmse:  0.06345645901989586 
+ global mean rmse:  0.025105440603264088 
+ global var rmse:  0.00031564727251796523
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.5173048003210473e-16 
+ global mean max error:  0.04494159832073052 
+ global max rmse:  0.06346252353261525 
+ global mean rmse:  0.025105766845656404 
+ global var rmse:  0.0003156561945261808
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.3692750637043598e-16 
+ global mean max error:  0.04452979813008346 
+ global max rmse:  0.06314481080480037 
+ global mean rmse:  0.02479235426245554 
+ global var rmse:  0.0003054606949224604
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  6.29126380620922e-17 
+ global mean max error:  0.044529742726995704 
+ global max rmse:  0.06314485231143646 
+ global mean rmse:  0.024792354289442358 
+ global var rmse:  0.0003054606774745793
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.1472304587793285e-16 
+ global mean max error:  0.044531936224113104 
+ global max rmse:  0.06316822382583868 
+ global mean rmse:  0.024793198265616368 
+ global var rmse:  0.00030547760190999674
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.810966440042345e-17 
+ global mean max error:  0.04452983593729667 
+ global max rmse:  0.06314515973815427 
+ global mean rmse:  0.024792365350822455 
+ global var rmse:  0.0003054611243193522
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  8.881784197001253e-17 
+ global mean max error:  0.04452971043820495 
+ global max rmse:  0.0631448057781687 
+ global mean rmse:  0.024792354156375474 
+ global var rmse:  0.0003054606762327606
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.258252761241844e-16 
+ global mean max error:  0.044531891330991225 
+ global max rmse:  0.06316827322251548 
+ global mean rmse:  0.0247932004685461 
+ global var rmse:  0.0003054776740636802
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  9.251858538542972e-17 
+ global mean max error:  0.04458772106430367 
+ global max rmse:  0.06357538329395103 
+ global mean rmse:  0.024818065862742874 
+ global var rmse:  0.000307234963627461
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.044587741599196686 
+ global max rmse:  0.06357537234537214 
+ global mean rmse:  0.024818065408971284 
+ global var rmse:  0.00030723494865286273
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.295260195396016e-16 
+ global mean max error:  0.04525658233395995 
+ global max rmse:  0.0659172158918929 
+ global mean rmse:  0.025196096522842607 
+ global var rmse:  0.00031335253055050276
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.04458768217380836 
+ global max rmse:  0.06357535134603984 
+ global mean rmse:  0.02481806467581372 
+ global var rmse:  0.0003072348874264099
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.1102230246251565e-16 
+ global mean max error:  0.04458769572358656 
+ global max rmse:  0.06357536659770827 
+ global mean rmse:  0.024818065273392333 
+ global var rmse:  0.0003072349538777481
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.04474767392994869 
+ global max rmse:  0.06545012321597239 
+ global mean rmse:  0.02488453607827319 
+ global var rmse:  0.00030875378273729814
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.2212453270876723e-16 
+ global mean max error:  0.04458771497305319 
+ global max rmse:  0.06357536863836465 
+ global mean rmse:  0.02481806507255108 
+ global var rmse:  0.00030723494060753493
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.031412489292658e-17 
+ global mean max error:  0.04458772326793074 
+ global max rmse:  0.06357536866959886 
+ global mean rmse:  0.024818065227540147 
+ global var rmse:  0.0003072349446707698
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  6.661338147750939e-17 
+ global mean max error:  0.04474766217587019 
+ global max rmse:  0.0654501207617117 
+ global mean rmse:  0.024884535954095097 
+ global var rmse:  0.0003087537764378699
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  1.0362081563168128e-16 
+ global mean max error:  0.04458774881164419 
+ global max rmse:  0.06357536437269994 
+ global mean rmse:  0.024818065542105132 
+ global var rmse:  0.0003072349517767024
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  8.881784197001253e-17 
+ global mean max error:  0.044587739297790925 
+ global max rmse:  0.06357536940048959 
+ global mean rmse:  0.02481806525247029 
+ global var rmse:  0.0003072349463377653
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.031412489292658e-17 
+ global mean max error:  0.04513794227777373 
+ global max rmse:  0.065243744558041 
+ global mean rmse:  0.02518064210571982 
+ global var rmse:  0.0003183798136855658
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.051377344617989755 
+ global max rmse:  0.18679099739757257 
+ global mean rmse:  0.02834469084968154 
+ global var rmse:  0.0009575304869125867
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.051377351473453674 
+ global max rmse:  0.1867910272488913 
+ global mean rmse:  0.028344691465469737 
+ global var rmse:  0.0009575308152393461
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.810966440042346e-17 
+ global mean max error:  0.052576225443339855 
+ global max rmse:  0.20307902595682262 
+ global mean rmse:  0.029015300679299274 
+ global var rmse:  0.0011431732613287006
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.0362081563168128e-16 
+ global mean max error:  0.05137731475976229 
+ global max rmse:  0.18679068571661223 
+ global mean rmse:  0.02834467935683346 
+ global var rmse:  0.0009575271414434154
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.440892098500627e-17 
+ global mean max error:  0.051377325539797035 
+ global max rmse:  0.18679074688642025 
+ global mean rmse:  0.028344680138995507 
+ global var rmse:  0.0009575278033862466
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  6.661338147750939e-17 
+ global mean max error:  0.05257625635519447 
+ global max rmse:  0.20307921523852782 
+ global mean rmse:  0.029015308139923444 
+ global var rmse:  0.0011431755100365904
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.070817756958907e-17 
+ global mean max error:  0.051377370881726704 
+ global max rmse:  0.1867907510526636 
+ global mean rmse:  0.028344680616387397 
+ global var rmse:  0.0009575278444993429
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  8.141635513917814e-17 
+ global mean max error:  0.05137727319699595 
+ global max rmse:  0.18679071072375603 
+ global mean rmse:  0.028344678527986732 
+ global var rmse:  0.0009575273995850801
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  1.3322676295501878e-16 
+ global mean max error:  0.05257624301618671 
+ global max rmse:  0.20307911049374827 
+ global mean rmse:  0.02901530334306172 
+ global var rmse:  0.0011431742758945776
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  4.810966440042346e-17 
+ global mean max error:  0.05137738593655592 
+ global max rmse:  0.1867909589597565 
+ global mean rmse:  0.028344688766771008 
+ global var rmse:  0.0009575301025189606
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  7.401486830834377e-17 
+ global mean max error:  0.0513772879187492 
+ global max rmse:  0.18679007137120296 
+ global mean rmse:  0.028344653899896346 
+ global var rmse:  0.0009575205050968385
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 23)',)
+('Number of PCA components: 23',)
+ global mean min error:  5.1810407815840646e-17 
+ global mean max error:  0.05257623129479306 
+ global max rmse:  0.2030790777338058 
+ global mean rmse:  0.029015302714901815 
+ global var rmse:  0.001143173881455891
+====== PCA Noise parameter, Length parameter:  1e-05 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  2.9605947323337513e-17 
+ global mean max error:  0.05143935717224008 
+ global max rmse:  0.18728402339061717 
+ global mean rmse:  0.028369997623909446 
+ global var rmse:  0.0009625610015454036
+====== PCA Noise parameter, Length parameter:  0.001 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.771561172376095e-17 
+ global mean max error:  0.0514394317863665 
+ global max rmse:  0.18728374376163545 
+ global mean rmse:  0.028369986744754442 
+ global var rmse:  0.0009625579762963411
+====== PCA Noise parameter, Length parameter:  0.1 1.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.4408920985006264e-17 
+ global mean max error:  0.05377846013570653 
+ global max rmse:  0.21628225426534817 
+ global mean rmse:  0.029750900446748323 
+ global var rmse:  0.0013083119377579689
+====== PCA Noise parameter, Length parameter:  1e-05 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error: /home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+/home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/sklearn/gaussian_process/_gpr.py:504: ConvergenceWarning: lbfgs failed to converge (status=2):
+ABNORMAL_TERMINATION_IN_LNSRCH.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  _check_optimize_result("lbfgs", opt_res)
+ 7.031412489292658e-17 
+ global mean max error:  0.05143929989815366 
+ global max rmse:  0.18728405164656334 
+ global mean rmse:  0.02836999913098665 
+ global var rmse:  0.000962561300260263
+====== PCA Noise parameter, Length parameter:  0.001 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  7.401486830834377e-17 
+ global mean max error:  0.05143938155662934 
+ global max rmse:  0.18728405084743574 
+ global mean rmse:  0.02836999800631954 
+ global var rmse:  0.0009625613029139613
+====== PCA Noise parameter, Length parameter:  0.1 4.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  6.29126380620922e-17 
+ global mean max error:  0.053158818125233015 
+ global max rmse:  0.21087373881781152 
+ global mean rmse:  0.02933773022001403 
+ global var rmse:  0.001237984816318928
+====== PCA Noise parameter, Length parameter:  1e-05 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  5.921189464667501e-17 
+ global mean max error:  0.0514393949184191 
+ global max rmse:  0.18728409160310192 
+ global mean rmse:  0.028370000991383666 
+ global var rmse:  0.0009625617578657304
+====== PCA Noise parameter, Length parameter:  0.001 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  8.511709855459534e-17 
+ global mean max error:  0.051439489022839575 
+ global max rmse:  0.18728406727987745 
+ global mean rmse:  0.02836999886045303 
+ global var rmse:  0.0009625614811768133
+====== PCA Noise parameter, Length parameter:  0.1 7.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417189e-17 
+ global mean max error:  0.053158767918778285 
+ global max rmse:  0.21087359941076442 
+ global mean rmse:  0.02933772379492255 
+ global var rmse:  0.0012379830971861838
+====== PCA Noise parameter, Length parameter:  1e-05 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417189e-17 
+ global mean max error:  0.052165290148114433 
+ global max rmse:  0.19344997530755104 
+ global mean rmse:  0.02885058921412218 
+ global var rmse:  0.0010338756343900707
+====== PCA Noise parameter, Length parameter:  0.001 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  4.440892098500627e-17 
+ global mean max error:  0.0514393882728665 
+ global max rmse:  0.18728398214114306 
+ global mean rmse:  0.028369995580430584 
+ global var rmse:  0.0009625605579361564
+====== PCA Noise parameter, Length parameter:  0.1 10.0
+case : theo
+('Shape of PCA matrix: (71, 24)',)
+('Number of PCA components: 24',)
+ global mean min error:  3.700743415417189e-17 
+ global mean max error:  0.05315882304047696 
+ global max rmse:  0.2108734508906355 
+ global mean rmse:  0.029337717267576672 
+ global var rmse:  0.0012379812486798879
+* JOBID: 64017.cmaster
+* USER: casas
+* GROUP: casas
+* JOBNAME: mnus_pca
+* SESSIONID: 155091
+* RESOURCESLIST: neednodes=1:ppn=24,nodes=1:ppn=24,walltime=01:00:00
+* RESOURCESUSED: cput=03:18:16,mem=266692kb,vmem=5832832kb,walltime=00:05:37
+* QUEUE: batch
+* JOB EXIT STATUS: 0

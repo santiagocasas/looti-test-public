@@ -1,0 +1,759 @@
+activating environment
+installing code
+running install
+running bdist_egg
+running egg_info
+writing looti.egg-info/PKG-INFO
+writing dependency_links to looti.egg-info/dependency_links.txt
+writing top-level names to looti.egg-info/top_level.txt
+reading manifest file 'looti.egg-info/SOURCES.txt'
+writing manifest file 'looti.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/MassiveNus_validation_script.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/OTAlgorithm.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/OTdatasplit.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/__init__.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/datahandle.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/dataplotters.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/emulatorpaths.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/info.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/interpolatingObject.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/interpolators.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/logOT_bary.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/otinterpol.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/otinterpolobj.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/python_example.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/read_file.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/read_yaml.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/tools.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/PlottingModule.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/dictlearn.py -> build/bdist.linux-x86_64/egg/looti
+copying build/lib/looti/automatic_validation.py -> build/bdist.linux-x86_64/egg/looti
+byte-compiling build/bdist.linux-x86_64/egg/looti/MassiveNus_validation_script.py to MassiveNus_validation_script.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/OTAlgorithm.py to OTAlgorithm.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/OTdatasplit.py to OTdatasplit.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/__init__.py to __init__.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/datahandle.py to datahandle.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/dataplotters.py to dataplotters.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/emulatorpaths.py to emulatorpaths.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/info.py to info.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/interpolatingObject.py to interpolatingObject.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/interpolators.py to interpolators.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/logOT_bary.py to logOT_bary.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/otinterpol.py to otinterpol.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/otinterpolobj.py to otinterpolobj.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/python_example.py to python_example.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/read_file.py to read_file.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/read_yaml.py to read_yaml.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/tools.py to tools.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/PlottingModule.py to PlottingModule.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/dictlearn.py to dictlearn.cpython-38.pyc
+byte-compiling build/bdist.linux-x86_64/egg/looti/automatic_validation.py to automatic_validation.cpython-38.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying looti.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+zip_safe flag not set; analyzing archive contents...
+creating 'dist/looti-0.0.0-py3.8.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing looti-0.0.0-py3.8.egg
+Removing /home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/looti-0.0.0-py3.8.egg
+Copying looti-0.0.0-py3.8.egg to /home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages
+looti 0.0.0 is already the active version in easy-install.pth
+
+Installed /home/casas/.conda/envs/lootiemu/lib/python3.8/site-packages/looti-0.0.0-py3.8.egg
+Processing dependencies for looti==0.0.0
+Finished processing dependencies for looti==0.0.0
+running script
+alpha tests:  [0.0008]
+====== DL alpha parameter:  0.0008
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 35)',)
+('Number of DL components: 35',)
+ global mean min error:  0.0035381472487799655 
+ global mean max error:  0.1363130411656587 
+ global max rmse:  0.3404730256839204 
+ global mean rmse:  0.0972021043803113 
+ global var rmse:  0.006608501231475859
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 35)',)
+('Number of DL components: 35',)
+ global mean min error:  0.004040912034759575 
+ global mean max error:  0.12825643577079518 
+ global max rmse:  0.3763568524300654 
+ global mean rmse:  0.09038301722423497 
+ global var rmse:  0.00716634523673926
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 35)',)
+('Number of DL components: 35',)
+ global mean min error:  0.0031949577765448853 
+ global mean max error:  0.12346137015142687 
+ global max rmse:  0.3797396154967221 
+ global mean rmse:  0.08667559930127641 
+ global var rmse:  0.006649050569448387
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 36)',)
+('Number of DL components: 36',)
+ global mean min error:  0.003485584035753561 
+ global mean max error:  0.12703666137115066 
+ global max rmse:  0.3776990189427919 
+ global mean rmse:  0.08944118104547841 
+ global var rmse:  0.006865823605286364
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 36)',)
+('Number of DL components: 36',)
+ global mean min error:  0.004070527420898099 
+ global mean max error:  0.12703877893373847 
+ global max rmse:  0.3765955429065686 
+ global mean rmse:  0.08942141910037468 
+ global var rmse:  0.007184602032902287
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 36)',)
+('Number of DL components: 36',)
+ global mean min error:  0.0034647863234689947 
+ global mean max error:  0.13443353016005233 
+ global max rmse:  0.3463525540637406 
+ global mean rmse:  0.09569888856348284 
+ global var rmse:  0.006554672027929184
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 37)',)
+('Number of DL components: 37',)
+ global mean min error:  0.003835220831058295 
+ global mean max error:  0.12944445419175316 
+ global max rmse:  0.3758950016114431 
+ global mean rmse:  0.09129650461444602 
+ global var rmse:  0.0070544361871555635
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 37)',)
+('Number of DL components: 37',)
+ global mean min error:  0.0031399161532369596 
+ global mean max error:  0.12215471100003628 
+ global max rmse:  0.38245408448401996 
+ global mean rmse:  0.08561426727903837 
+ global var rmse:  0.006681788220316798
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 37)',)
+('Number of DL components: 37',)
+ global mean min error:  0.004424114937225728 
+ global mean max error:  0.132328638935581 
+ global max rmse:  0.37033739168441737 
+ global mean rmse:  0.09355269505416322 
+ global var rmse:  0.007323155983666176
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 38)',)
+('Number of DL components: 38',)
+ global mean min error:  0.003988049714490835 
+ global mean max error:  0.12906917948702487 
+ global max rmse:  0.3763157415610861 
+ global mean rmse:  0.0909916141129309 
+ global var rmse:  0.0071175299396241285
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 38)',)
+('Number of DL components: 38',)
+ global mean min error:  0.004299620729455352 
+ global mean max error:  0.14218824158894625 
+ global max rmse:  0.3490544988900096 
+ global mean rmse:  0.1016025448783639 
+ global var rmse:  0.007350015066916728
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 38)',)
+('Number of DL components: 38',)
+ global mean min error:  0.004010317489729881 
+ global mean max error:  0.1347560047384696 
+ global max rmse:  0.36560243769407874 
+ global mean rmse:  0.09557016696755838 
+ global var rmse:  0.007057078530463006
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 39)',)
+('Number of DL components: 39',)
+ global mean min error:  0.004368861241386105 
+ global mean max error:  0.14286157095844726 
+ global max rmse:  0.3483724642953467 
+ global mean rmse:  0.10212697535974956 
+ global var rmse:  0.007406021154110973
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 39)',)
+('Number of DL components: 39',)
+ global mean min error:  0.004061505659031138 
+ global mean max error:  0.1417179753479559 
+ global max rmse:  0.34012024413294706 
+ global mean rmse:  0.10134932198368715 
+ global var rmse:  0.007126114989865214
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 39)',)
+('Number of DL components: 39',)
+ global mean min error:  0.0036722609632620774 
+ global mean max error:  0.13209723320167563 
+ global max rmse:  0.3631777799014068 
+ global mean rmse:  0.09359392769282017 
+ global var rmse:  0.006741318373566843
+alpha tests:  [0.0008]
+====== DL alpha parameter:  0.0008
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 35)',)
+('Number of DL components: 35',)
+ global mean min error:  0.0009880991223583887 
+ global mean max error:  0.07905932740384183 
+ global max rmse:  0.24707831529147575 
+ global mean rmse:  0.05253721464157974 
+ global var rmse:  0.002438776137061473
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 35)',)
+('Number of DL components: 35',)
+ global mean min error:  0.0018357858014249853 
+ global mean max error:  0.07751716673319829 
+ global max rmse:  0.22134797810015305 
+ global mean rmse:  0.05174033783746151 
+ global var rmse:  0.002569936329978575
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 35)',)
+('Number of DL components: 35',)
+ global mean min error:  0.002365602162479259 
+ global mean max error:  0.08406795430791489 
+ global max rmse:  0.25398156490507356 
+ global mean rmse:  0.057194357314199196 
+ global var rmse:  0.0031874041310247176
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 36)',)
+('Number of DL components: 36',)
+ global mean min error:  0.0019193401570476592 
+ global mean max error:  0.07862548897152967 
+ global max rmse:  0.22637040474868358 
+ global mean rmse:  0.05265630720757524 
+ global var rmse:  0.0026967144201957122
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 36)',)
+('Number of DL components: 36',)
+ global mean min error:  0.00108172752777324 
+ global mean max error:  0.0792332991368159 
+ global max rmse:  0.24313287764726263 
+ global mean rmse:  0.05273505578123229 
+ global var rmse:  0.002517422095487457
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 36)',)
+('Number of DL components: 36',)
+ global mean min error:  0.0007768490191536968 
+ global mean max error:  0.07716057304742867 
+ global max rmse:  0.21723264789487967 
+ global mean rmse:  0.05039841654102244 
+ global var rmse:  0.0017685770767292505
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 37)',)
+('Number of DL components: 37',)
+ global mean min error:  0.0014626390854843782 
+ global mean max error:  0.08068931053399117 
+ global max rmse:  0.24618572808492714 
+ global mean rmse:  0.05407881245693073 
+ global var rmse:  0.002711513867906665
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 37)',)
+('Number of DL components: 37',)
+ global mean min error:  0.0010065901936934312 
+ global mean max error:  0.07840197923137661 
+ global max rmse:  0.23939616422582832 
+ global mean rmse:  0.05198658239940742 
+ global var rmse:  0.0024302513618656946
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 37)',)
+('Number of DL components: 37',)
+ global mean min error:  0.001044742400897866 
+ global mean max error:  0.07964089037040485 
+ global max rmse:  0.2503296205543816 
+ global mean rmse:  0.052894919273654514 
+ global var rmse:  0.0024532564733779883
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 38)',)
+('Number of DL components: 38',)
+ global mean min error:  0.0011056960813512727 
+ global mean max error:  0.07955696020301946 
+ global max rmse:  0.25028448735259784 
+ global mean rmse:  0.052786412315771185 
+ global var rmse:  0.0024255825554609987
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 38)',)
+('Number of DL components: 38',)
+ global mean min error:  0.0018749103944211733 
+ global mean max error:  0.07857617067572521 
+ global max rmse:  0.22825131877881477 
+ global mean rmse:  0.05245505050070441 
+ global var rmse:  0.002627231583418181
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 38)',)
+('Number of DL components: 38',)
+ global mean min error:  0.0011738266039237539 
+ global mean max error:  0.07850374002595327 
+ global max rmse:  0.2431907540674304 
+ global mean rmse:  0.051674591764002735 
+ global var rmse:  0.002200901756442446
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 39)',)
+('Number of DL components: 39',)
+ global mean min error:  0.0010284477225468737 
+ global mean max error:  0.07823506103627105 
+ global max rmse:  0.2372397516249472 
+ global mean rmse:  0.0518461780264139 
+ global var rmse:  0.002427372645326399
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 39)',)
+('Number of DL components: 39',)
+ global mean min error:  0.0009834274380870669 
+ global mean max error:  0.07496646505726616 
+ global max rmse:  0.22361680782742763 
+ global mean rmse:  0.04868216213071343 
+ global var rmse:  0.0018584673113963741
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 39)',)
+('Number of DL components: 39',)
+ global mean min error:  0.0014253556510316042 
+ global mean max error:  0.08483483959884351 
+ global max rmse:  0.2698700224666134 
+ global mean rmse:  0.05726582345806341 
+ global var rmse:  0.002978524523674728
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 40)',)
+('Number of DL components: 40',)
+ global mean min error:  0.001027509607896187 
+ global mean max error:  0.07983516909841515 
+ global max rmse:  0.24993034572268974 
+ global mean rmse:  0.053173664696112004 
+ global var rmse:  0.002516987765211006
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 40)',)
+('Number of DL components: 40',)
+ global mean min error:  0.0013106391591265524 
+ global mean max error:  0.08385890970756056 
+ global max rmse:  0.2680237776318291 
+ global mean rmse:  0.05637328742262713 
+ global var rmse:  0.0028338524812729668
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 40)',)
+('Number of DL components: 40',)
+ global mean min error:  0.0035743153836174327 
+ global mean max error:  0.08551068762174899 
+ global max rmse:  0.2525911916337562 
+ global mean rmse:  0.05903352521062995 
+ global var rmse:  0.0038387504967621225
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 41)',)
+('Number of DL components: 41',)
+ global mean min error:  0.0012594483782738177 
+ global mean max error:  0.08246028655130222 
+ global max rmse:  0.26236764573193067 
+ global mean rmse:  0.05520360187969865 
+ global var rmse:  0.002704183115747556
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 41)',)
+('Number of DL components: 41',)
+ global mean min error:  0.0011769976895702554 
+ global mean max error:  0.07854276679482794 
+ global max rmse:  0.24449482463495964 
+ global mean rmse:  0.051764548582883936 
+ global var rmse:  0.0022375989316237837
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 41)',)
+('Number of DL components: 41',)
+ global mean min error:  0.0011169234880961762 
+ global mean max error:  0.07930409240597942 
+ global max rmse:  0.24122080655732395 
+ global mean rmse:  0.05280655325187023 
+ global var rmse:  0.0025478240204628447
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 42)',)
+('Number of DL components: 42',)
+ global mean min error:  0.0013541057848707857 
+ global mean max error:  0.08412202453208771 
+ global max rmse:  0.2672818956714591 
+ global mean rmse:  0.05665980988912968 
+ global var rmse:  0.002907348849575602
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 42)',)
+('Number of DL components: 42',)
+ global mean min error:  0.0010862002844630053 
+ global mean max error:  0.07892872118889806 
+ global max rmse:  0.24758934723535875 
+ global mean rmse:  0.052222262278683054 
+ global var rmse:  0.0023422955104790075
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 42)',)
+('Number of DL components: 42',)
+ global mean min error:  0.0009964999529585958 
+ global mean max error:  0.0779640954895458 
+ global max rmse:  0.24332765207120544 
+ global mean rmse:  0.05148684170617389 
+ global var rmse:  0.0022767061378056687
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 43)',)
+('Number of DL components: 43',)
+ global mean min error:  0.004577802373472064 
+ global mean max error:  0.09233672103984945 
+ global max rmse:  0.2755493963213404 
+ global mean rmse:  0.06448613524650643 
+ global var rmse:  0.004365327256128612
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 43)',)
+('Number of DL components: 43',)
+ global mean min error:  0.0014064070518978204 
+ global mean max error:  0.08452237818676102 
+ global max rmse:  0.26801210384400537 
+ global mean rmse:  0.05702267536263495 
+ global var rmse:  0.0029625235372704893
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 43)',)
+('Number of DL components: 43',)
+ global mean min error:  0.001206488075840627 
+ global mean max error:  0.08023665612182165 
+ global max rmse:  0.2485133223395943 
+ global mean rmse:  0.05365149041559947 
+ global var rmse:  0.002615562353270788
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 44)',)
+('Number of DL components: 44',)
+ global mean min error:  0.0013984185676816792 
+ global mean max error:  0.08392595987858947 
+ global max rmse:  0.2649250929073049 
+ global mean rmse:  0.056551696787283105 
+ global var rmse:  0.0029215660747620746
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 44)',)
+('Number of DL components: 44',)
+ global mean min error:  0.0033545360707903744 
+ global mean max error:  0.08467111432884296 
+ global max rmse:  0.24981697858527663 
+ global mean rmse:  0.058312987919320644 
+ global var rmse:  0.0036910033523335096
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 44)',)
+('Number of DL components: 44',)
+ global mean min error:  0.0010986768048642738 
+ global mean max error:  0.0791645954113625 
+ global max rmse:  0.2443375223595914 
+ global mean rmse:  0.05267902371765403 
+ global var rmse:  0.0024961947653728343
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 45)',)
+('Number of DL components: 45',)
+ global mean min error:  0.0017389851372909245 
+ global mean max error:  0.0857586351598629 
+ global max rmse:  0.270688963372518 
+ global mean rmse:  0.05811562086679102 
+ global var rmse:  0.003116846865868832
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 45)',)
+('Number of DL components: 45',)
+ global mean min error:  0.0018905552784052148 
+ global mean max error:  0.0790622226216802 
+ global max rmse:  0.22770630639966047 
+ global mean rmse:  0.053103471737292914 
+ global var rmse:  0.0027772537607452974
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 45)',)
+('Number of DL components: 45',)
+ global mean min error:  0.0036431123144036125 
+ global mean max error:  0.09171260272660917 
+ global max rmse:  0.27786009463194267 
+ global mean rmse:  0.06371703559591159 
+ global var rmse:  0.0040355412945538615
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 46)',)
+('Number of DL components: 46',)
+ global mean min error:  0.0016563486448319979 
+ global mean max error:  0.0868051252561033 
+ global max rmse:  0.2783066376629281 
+ global mean rmse:  0.058928283096992676 
+ global var rmse:  0.00314372334936466
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 46)',)
+('Number of DL components: 46',)
+ global mean min error:  0.0016545559719807802 
+ global mean max error:  0.08077208756346393 
+ global max rmse:  0.24426954332161616 
+ global mean rmse:  0.0541925893680402 
+ global var rmse:  0.0027528649069757448
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 46)',)
+('Number of DL components: 46',)
+ global mean min error:  0.0012931666090107354 
+ global mean max error:  0.08182217692411203 
+ global max rmse:  0.25978773853386433 
+ global mean rmse:  0.05452557126738122 
+ global var rmse:  0.0025422727371613957
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 47)',)
+('Number of DL components: 47',)
+ global mean min error:  0.004858675676352387 
+ global mean max error:  0.09590773450154581 
+ global max rmse:  0.2871617717939369 
+ global mean rmse:  0.06759954491956587 
+ global var rmse:  0.004595644114398573
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 47)',)
+('Number of DL components: 47',)
+ global mean min error:  0.002532935529955308 
+ global mean max error:  0.08521299417781253 
+ global max rmse:  0.25590299988671006 
+ global mean rmse:  0.05826006571473552 
+ global var rmse:  0.0033855493737859708
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 47)',)
+('Number of DL components: 47',)
+ global mean min error:  0.00123815410198373 
+ global mean max error:  0.07949326960597641 
+ global max rmse:  0.23792098358675728 
+ global mean rmse:  0.0524199197160384 
+ global var rmse:  0.0020809968293638167
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 48)',)
+('Number of DL components: 48',)
+ global mean min error:  0.001563506234502933 
+ global mean max error:  0.08557359258207861 
+ global max rmse:  0.2760857894787923 
+ global mean rmse:  0.0577914840635816 
+ global var rmse:  0.0029151183256789673
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 48)',)
+('Number of DL components: 48',)
+ global mean min error:  0.0023557109741578638 
+ global mean max error:  0.08850565187629982 
+ global max rmse:  0.27872945156137496 
+ global mean rmse:  0.060511184321621884 
+ global var rmse:  0.0034145989869432372
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 48)',)
+('Number of DL components: 48',)
+ global mean min error:  0.0019726980998512004 
+ global mean max error:  0.08025591148630092 
+ global max rmse:  0.23359167008061332 
+ global mean rmse:  0.05407576749499275 
+ global var rmse:  0.002895438218669449
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 49)',)
+('Number of DL components: 49',)
+ global mean min error:  0.0014063602917290365 
+ global mean max error:  0.08480948311593599 
+ global max rmse:  0.2705494255827773 
+ global mean rmse:  0.05721931006833408 
+ global var rmse:  0.002958212428095514
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 49)',)
+('Number of DL components: 49',)
+ global mean min error:  0.0017618218816169077 
+ global mean max error:  0.0870452422331959 
+ global max rmse:  0.277141262139119 
+ global mean rmse:  0.05916722809792399 
+ global var rmse:  0.003207485132900164
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 49)',)
+('Number of DL components: 49',)
+ global mean min error:  0.003267727487506419 
+ global mean max error:  0.07971803376651056 
+ global max rmse:  0.22843178196524866 
+ global mean rmse:  0.054979733099174116 
+ global var rmse:  0.0034210652015652415
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 50)',)
+('Number of DL components: 50',)
+ global mean min error:  0.003677310454218172 
+ global mean max error:  0.09563520949189422 
+ global max rmse:  0.2975892167616892 
+ global mean rmse:  0.06682428736164674 
+ global var rmse:  0.0041486819241186666
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 50)',)
+('Number of DL components: 50',)
+ global mean min error:  0.001493306953702154 
+ global mean max error:  0.08543658780675703 
+ global max rmse:  0.2750790502194725 
+ global mean rmse:  0.057693485461230806 
+ global var rmse:  0.0029475164536366606
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 50)',)
+('Number of DL components: 50',)
+ global mean min error:  0.0016324243840310838 
+ global mean max error:  0.07890589284047501 
+ global max rmse:  0.2331182612875989 
+ global mean rmse:  0.05259177948248891 
+ global var rmse:  0.0025940899067265146
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 51)',)
+('Number of DL components: 51',)
+ global mean min error:  0.0012584185749445515 
+ global mean max error:  0.0830477691474869 
+ global max rmse:  0.26474241939520704 
+ global mean rmse:  0.05569907722050094 
+ global var rmse:  0.002760603626696704
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 51)',)
+('Number of DL components: 51',)
+ global mean min error:  0.0011948478783626033 
+ global mean max error:  0.08206805055573654 
+ global max rmse:  0.26047995264892243 
+ global mean rmse:  0.05488721857727725 
+ global var rmse:  0.0026769631847158425
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 51)',)
+('Number of DL components: 51',)
+ global mean min error:  0.0020141710415476372 
+ global mean max error:  0.08482886635380696 
+ global max rmse:  0.26358165959199176 
+ global mean rmse:  0.057474646834495866 
+ global var rmse:  0.00309685169458976
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 52)',)
+('Number of DL components: 52',)
+ global mean min error:  0.002171320869540787 
+ global mean max error:  0.08538466058729455 
+ global max rmse:  0.26508844007327775 
+ global mean rmse:  0.057954448995503505 
+ global var rmse:  0.003161233003837354
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 52)',)
+('Number of DL components: 52',)
+ global mean min error:  0.0020511529867210288 
+ global mean max error:  0.08019752338170164 
+ global max rmse:  0.23149714932014448 
+ global mean rmse:  0.05426689576964271 
+ global var rmse:  0.0030019621824736646
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 52)',)
+('Number of DL components: 52',)
+ global mean min error:  0.0024804416640474268 
+ global mean max error:  0.08947181306836524 
+ global max rmse:  0.28295174570510034 
+ global mean rmse:  0.0613482262194432 
+ global var rmse:  0.0034935642075513153
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 53)',)
+('Number of DL components: 53',)
+ global mean min error:  0.0012077172074964333 
+ global mean max error:  0.07999311091877634 
+ global max rmse:  0.2519825120207167 
+ global mean rmse:  0.053026377568890254 
+ global var rmse:  0.002401168526025001
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 53)',)
+('Number of DL components: 53',)
+ global mean min error:  0.002153186999085855 
+ global mean max error:  0.08684303601765547 
+ global max rmse:  0.2724688406502057 
+ global mean rmse:  0.059092325080389745 
+ global var rmse:  0.0032603699655302494
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 53)',)
+('Number of DL components: 53',)
+ global mean min error:  0.0013840148602922303 
+ global mean max error:  0.08274689975044545 
+ global max rmse:  0.26099668531027964 
+ global mean rmse:  0.055292571268623254 
+ global var rmse:  0.0025108668897489876
+====== DL Noise parameter:  1e-05
+case : theo
+('Shape of DL matrix: (71, 54)',)
+('Number of DL components: 54',)
+ global mean min error:  0.0037344013299474297 
+ global mean max error:  0.08659212191859729 
+ global max rmse:  0.2563215013677618 
+ global mean rmse:  0.059867769337951064 
+ global var rmse:  0.003943908485527741
+====== DL Noise parameter:  0.001
+case : theo
+('Shape of DL matrix: (71, 54)',)
+('Number of DL components: 54',)
+ global mean min error:  0.0027987616668348 
+ global mean max error:  0.08890690925568683 
+ global max rmse:  0.2741240019244481 
+ global mean rmse:  0.06104627190812906 
+ global var rmse:  0.003580746221429031
+====== DL Noise parameter:  0.1
+case : theo
+('Shape of DL matrix: (71, 54)',)
+('Number of DL components: 54',)
+ global mean min error:  0.002564553532165966 
+ global mean max error:  0.08677708730656117 
+ global max rmse:  0.2666866233436269 
+ global mean rmse:  0.059242010222412156 
+ global var rmse: * JOBID: 64650.cmaster
+* USER: casas
+* GROUP: casas
+* JOBNAME: mnus_dl
+* SESSIONID: 47370
+* RESOURCESLIST: neednodes=1:ppn=24,nodes=1:ppn=24,walltime=12:00:00
+* RESOURCESUSED: cput=356:17:42,mem=196724kb,vmem=9174740kb,walltime=12:00:13
+* QUEUE: batch
+* JOB EXIT STATUS: 271
