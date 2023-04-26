@@ -487,8 +487,8 @@ def Predict_ratio(emulation_data,
         
     elif (emulation_data.train_redshift !=emulation_data.z_requested[train_redshift_indices] or emulation_data.test_redshift !=emulation_data.z_requested[test_redshift_indices] ):
         emulation_data.calculate_data_split(n_train = emulation_data.train_size,n_vali=1, n_test=emulation_data.test_size,
-                                    n_splits=n_splits, verbosity=0,manual_split=True,test_indices = emulation_data.test_indices,
-                                    train_indices = emulation_data.train_indices,
+                                    n_splits=n_splits, verbosity=0,manual_split=True,test_indices = emulation_data.ind_test,
+                                    train_indices = emulation_data.ind_train,
                                     train_redshift_indices =  train_redshift_indices,
                                     test_redshift_indices = test_redshift_indices)
     emulation_data.data_split(split,thinning=thinning, mask=mask,

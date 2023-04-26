@@ -122,7 +122,7 @@ class DataHandle:
             self.df_ref = pd.read_csv(self.data_dir+self.flnm_ref+fileext, index_col=self.mindexcols_ref)
             self.fgrid  = self.df_ref.loc[(self.features_str),:].values.flatten()   # fgrid: features grid
         else:
-            self.fgrid  = self.df_ext .loc[(self.features_str),:].values.flatten()   # fgrid: features grid
+            self.fgrid  = self.df_ext.loc[(self.features_str),:].values.flatten()   # fgrid: features grid
 
         if self.features_to_Log==True:
             self.fgrid = np.log10(self.fgrid)
@@ -220,7 +220,7 @@ class DataHandle:
         self.matrix_ratios_dict = objdict(self.matrix_ratios_dict)
         self.z_requested = np.array(redshift_list)
 
-    def calculate_ratio_data(self, z,normalize = True,pos_norm = 2, _SAVING = True):
+    def calculate_ratio_data(self, z, normalize = True, pos_norm = 2, _SAVING = True):
         """Calculate the ratio between the external model and the reference at a specified redshift
 
         Args:
@@ -257,7 +257,6 @@ class DataHandle:
                     F_norm = reftheo[pos_norm]/exnoi[pos_norm]
                 else:
                     F_norm = 1
-
                 matrix_z[nnoi].append(exnoi/reftheo * F_norm)
 
 
