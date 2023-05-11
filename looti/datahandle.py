@@ -159,9 +159,9 @@ class DataHandle:
         #self.extparam1_vals = [float((dd.replace(self.extparam1_name+'_','')).replace('p','.')) for dd in self.param1_names_vals]
         #self.extparam1_vals = np.unique(np.array(self.multindex_ext.get_level_values('parameter_1_value').values)[:-1])
 
-        self.df_ext=self.df_ext.sort_values([z_indexname,'parameter_1_value'])
+        self.df_ext=self.df_ext.sort_values([noise_indexname, z_indexname,'parameter_1_value'])
         if self.ratio_mode == False:
-            self.df_ref=self.df_ref.sort_values(z_indexname)
+            self.df_ref=self.df_ref.sort_values([noise_indexname, z_indexname])
 
         too.condprint("pandas DataFrame Multiindex", self.multindex_ext.get_level_values('parameter_1_value').values,
         level=3, verbosity=verbosity)
@@ -187,7 +187,7 @@ class DataHandle:
         return None
 
 
-    def calculate_ratio_by_redshifts(self,redshift_list,normalize = True, pos_norm = 2):
+    def calculate_ratio_by_redshifts(self,redshift_list,normalize = True, pos_norm = 2, mean_std_norm=False):
         """Calculate the ratio between the external model and the reference for any redshift passed"
 
         Args:
@@ -208,7 +208,7 @@ class DataHandle:
         empty_arr =   [[] for ii in range(len(self.noise_names))]
         self.matrix_ratios_dict= dict(zip(self.noise_names, empty_arr))
         for z in np.sort(redshift_list):
-            matrix_z = self.calculate_ratio_data(z,normalize,pos_norm, _SAVING=False)
+            matrix_z = self.calculate_ratio_data(z,normalize,pos_norm, _SAVING=False, mean_std_norm=mean_std_norm)
             for nnoi in self.noise_names:
                 self.matrix_ratios_dict[nnoi].append(matrix_z[nnoi])
 
@@ -220,7 +220,7 @@ class DataHandle:
         self.matrix_ratios_dict = objdict(self.matrix_ratios_dict)
         self.z_requested = np.array(redshift_list)
 
-    def calculate_ratio_data(self, z, normalize = True, pos_norm = 2, _SAVING = True):
+    def calculate_ratio_data(self, z, normalize = True, pos_norm = 2, _SAVING = True, mean_std_norm=False):
         """Calculate the ratio between the external model and the reference at a specified redshift
 
         Args:
@@ -242,34 +242,67 @@ class DataHandle:
         empty_arr =   [[] for ii in range(len(self.noise_names))]
         matrix_z= dict(zip(self.noise_names, empty_arr))
 
+        if mean_std_norm == True:
 
+            for nnoi in self.noise_names:
 
-        for nnoi in self.noise_names:
-            for iind in (self.df_ext.loc[nnoi,z_request].index):
-                exnoi=self.df_ext.loc[(nnoi,z_request)+iind].values.flatten()
+                # if ratio mode is not used, the spectra are divided by a reference spectrum
                 if self.ratio_mode == True:
-                    reftheo=exnoi/exnoi # vectors of one and size exnoi generated
+                    reftheo = 1
                 else:
-                    reftheo=self.df_ref.loc[(self.noiseless_str,z_request),:].values.flatten()
-                    
-                ####Here is where we normalize the ratios. We force R(pos_norm)  = 1.
+                    reftheo = self.df_ref.loc[(self.noiseless_str,z_request)].values
+
+                exnoi = self.df_ext.loc[nnoi, z_request].values / reftheo
+
+                # binwise normalization: we shift by the mean and divide by standard devitaion
                 if normalize == True:
-                    F_norm = reftheo[pos_norm]/exnoi[pos_norm]
+                    binwise_mean = exnoi.mean(axis=0)
+                    binwise_std = exnoi.std(axis=0)
                 else:
-                    F_norm = 1
-                matrix_z[nnoi].append(exnoi/reftheo * F_norm)
+                    binwise_mean = 0
+                    binwise_std = 1
 
+                self.binwise_mean = binwise_mean
+                self.binwise_std = binwise_std
+                # self.matrix_raw = exnoi
+                # self.matrix_normed = (exnoi - binwise_mean) / binwise_std
+                matrix_z[nnoi] = (exnoi - binwise_mean) / binwise_std
 
-        if _SAVING == True:
-                self.matrix_ratios_dict = matrix_z
-
-                for nnoi in self.noise_names:
-                    self.matrix_ratios_dict[nnoi] = np.array(self.matrix_ratios_dict[nnoi])
-                self.matrix_ratios_dict = objdict(self.matrix_ratios_dict)
+            if _SAVING == True:
+                self.matrix_ratios_dict = objdict(matrix_z)
                 self.z_requested = z_request
                 self.multiple_z = False
+            else:
+                return matrix_z
+
         else:
-            return matrix_z
+        
+            for nnoi in self.noise_names:
+                for iind in (self.df_ext.loc[nnoi,z_request].index):
+                    exnoi=self.df_ext.loc[(nnoi,z_request)+iind].values.flatten()
+                    if self.ratio_mode == True:
+                        reftheo=exnoi/exnoi # vectors of one and size exnoi generated
+                    else:
+                        reftheo=self.df_ref.loc[(self.noiseless_str,z_request),:].values.flatten()
+                        
+                    ####Here is where we normalize the ratios. We force R(pos_norm)  = 1.
+                    if normalize == True:
+                        F_norm = reftheo[pos_norm]/exnoi[pos_norm]
+                    else:
+                        F_norm = 1
+                    matrix_z[nnoi].append(exnoi/reftheo * F_norm)
+
+
+            if _SAVING == True:
+                    self.matrix_ratios_dict = matrix_z
+
+                    for nnoi in self.noise_names:
+                        self.matrix_ratios_dict[nnoi] = np.array(self.matrix_ratios_dict[nnoi])
+                    self.matrix_ratios_dict = objdict(self.matrix_ratios_dict)
+                    self.z_requested = z_request
+                    self.multiple_z = False
+            else:
+                return matrix_z
 
 
     @staticmethod
@@ -473,7 +506,7 @@ class DataHandle:
                     test = test_indices[ii]
                     ###We make sure that the indice lies into a correct space. e.g if we have nb_param = 101, and a indices i = 103 it will become i =2
                     test_origin = [tt%nb_param for tt in test]
-                    
+
                     ###Do we want to construct a interpolation only over the redshift ? /!\ Warning  /!\ this is case is not really used....
                     if interpolate_over_redshift_only == False and train_indices is None:
                         train_origin = [ii for ii in range(1,nb_param-1) if ii not in test_origin ]

@@ -105,7 +105,7 @@ class LearnData:
         self.verbosity = self.operator.verbosity
         return None
 
-    def interpolate(self, train_data=[], train_samples=[], train_noise=[False]):
+    def interpolate(self, train_data=[], train_samples=[], train_noise=[False], pca_norm=False):
         """Construct the interpolation between the paremeters and the spectra of the training set.
         Args:
             train_data: spectra 
@@ -130,7 +130,7 @@ class LearnData:
         if self.method == "LIN":
             self.LINtraining()
         elif self.method == "PCA":
-            self.PCAtraining()
+            self.PCAtraining(pca_norm)
         elif self.method == "DL":
             self.DLtraining()
         elif self.method == "GP":
@@ -151,11 +151,19 @@ class LearnData:
         self.interpol_matrix = interpolFuncsLin_matrix
         return self.interpol_matrix  ## matrix of interpolating functions at each feature
 
-    def PCAtraining(self):
+    def PCAtraining(self, pca_norm):
         """Computing the PCA representation and contruct the interpolation over the PCA components"""
         pca=PCA(n_components=self.ncomp)
         self.pca=pca## take n principal components
-        matPCA=pca.fit(self.trainspace_mat).transform(self.trainspace_mat)
+
+        if pca_norm == True:
+            matPCA_raw=pca.fit(self.trainspace_mat).transform(self.trainspace_mat)
+            self.matPCA_mean = matPCA_raw.mean(axis=0)
+            self.matPCA_std = matPCA_raw.std(axis=0)
+            matPCA = (matPCA_raw - self.matPCA_mean) / self.matPCA_std
+        else:
+            matPCA=pca.fit(self.trainspace_mat).transform(self.trainspace_mat)
+
         ncomp=pca.n_components_
         Vpca=pca.components_
         meanvec=pca.mean_
@@ -232,7 +240,7 @@ class LearnData:
         self.OT.OT_Algorithm(self.trainspace,self.operator.ot_xgrids,mode='train',data=self.trainspace_mat,)
 
 
-    def predict(self, predict_space):
+    def predict(self, predict_space, pca_norm):
         """Predict the spectra for a given set of paremeters.
         Args:
             predict_space: the paremeters of the spectra to predict.
@@ -245,7 +253,7 @@ class LearnData:
         self.predict_space = np.copy(predict_space)
         if self.interp_dim<2:
             self.predict_space = self.predict_space[:,-1].flatten()
-        self.predict_mat = self.reconstruct_data(self.predict_space)
+        self.predict_mat = self.reconstruct_data(self.predict_space, pca_norm)
         self.predict_mat_dict = dict()
         if self.method=="OT":
             pred_ws=self.predi_weights_arr
@@ -278,7 +286,7 @@ class LearnData:
 
 
 
-    def reconstruct_data(self, parspace):
+    def reconstruct_data(self, parspace, pca_norm):
         """Predict the spectra for a given set of paremeters.
         Args:
             predict_space: paremeters of the spectra to predict.
@@ -287,8 +295,11 @@ class LearnData:
         """
         if self.method=="PCA":
             if self.interp_type == "GP":
-                interp_atoms= self.gp_regressor.predict(parspace)
-
+                if pca_norm == True:
+                    interp_atoms_normed = self.gp_regressor.predict(parspace)
+                    interp_atoms = interp_atoms_normed * self.matPCA_std + self.matPCA_mean
+                else:
+                    interp_atoms = self.gp_regressor.predict(parspace)
             else :
                 interp_atoms = self.interpolated_atoms(parspace)
 
@@ -427,22 +438,28 @@ class LearnData:
 
 
 def Predict_ratio(emulation_data,
-              Operator = "GP",
-              ncomp = 1,
-              train_noise = 1e-10,
-              gp_n_rsts = 10,
-              gp_const = 1,
-              gp_length = 10 ,
-              interp_type='GP',
-              n_train=None,
-              n_test=None,
-              n_splits=1,
-              split = 0,
-              test_indices=[1],
+                  Operator = "GP",
+                  ncomp = 1,
+                  train_noise = 1e-10,
+                  gp_n_rsts = 10,
+                  gp_const = 1,
+                  gp_length = 10 ,
+                  interp_type = 'GP',
+                  interp_dim = 1,
+                  n_train = None,
+                  n_test = None,
+                  n_splits = 1,
+                  split = 0,
+                  test_indices = [1],
                   train_redshift_indices = [0],
                   test_redshift_indices = [0],
-              return_interpolator = False,
-              thinning = 1, min_k= None,max_k =None,mask=None,interp_dim=2):
+                  return_interpolator = False,
+                  thinning = 1, 
+                  min_k = None, 
+                  max_k = None,
+                  mask = None,
+                  pca_norm = True
+                  ):
     """Construct the interpolation of a set of training vectors and return the prediction over the set of test parameters.
      The user can previously split the data into train/vali/test or provide the number of training and test vectors wanted.
      In the last case, the function perfoms the split automatically.
@@ -497,8 +514,8 @@ def Predict_ratio(emulation_data,
     intobj = LearnData(PCAop)
 ###Perfoming the PCA reduction and interpolation
     intobj.interpolate(train_data=emulation_data.matrix_datalearn_dict[noise_case]['train'],
-                       train_samples=emulation_data.train_samples,train_noise = train_noise )
-    ratios_predicted = intobj.predict(emulation_data.test_samples)
+                       train_samples=emulation_data.train_samples,train_noise = train_noise, pca_norm=pca_norm)
+    ratios_predicted = intobj.predict(emulation_data.test_samples, pca_norm)
 
     if return_interpolator == True:
         return  ratios_predicted,emulation_data,intobj 
@@ -509,7 +526,7 @@ def Predict_ratio(emulation_data,
 
 def reconstruct_spectra(ratios_predicted,
                         emulation_data,
-                        normalization = False, pos_norm = 2):
+                        normalization = False, pos_norm = 2, mean_std_norm=False):
     """Reconstruct the spectra from ratios
      Args:
          ratios_predicted: a dictionary parameters -> ratios
@@ -530,21 +547,35 @@ def reconstruct_spectra(ratios_predicted,
             LCDM_ref = emulation_data.df_ref.loc[emulation_data.level_of_noise,parameters[0]].values.flatten()
         else:
            LCDM_ref = emulation_data.df_ref.loc[(emulation_data.level_of_noise),:].values.flatten()
-        if normalization  == False:
-            F = 1
+
+        if mean_std_norm ==True:
+            if normalization  == False:
+                binwise_mean = 0
+                binwise_std = 1
+            else:
+                binwise_mean = emulation_data.binwise_mean
+                binwise_std = emulation_data.binwise_std
+
+            spectrum = (ratios_predicted[parameters] * binwise_std + binwise_mean) * LCDM_ref[emulation_data.mask_true]
+            spectra[parameters] = spectrum
+
         else:
+            if normalization  == False:
+                F = 1
+            else:
 
-            F = Interpolatation_of_f.predict(np.atleast_2d(parameters),emulation_data.pos_norm)#/LCDM_ref[emulation_data.pos_norm]
-            F=F[0]
-            ind = emulation_data.get_index_param(parameters,emulation_data.multiple_z)
-            y = emulation_data.df_ext.loc[ind].values.flatten()[emulation_data.pos_norm]
+                F = Interpolatation_of_f.predict(np.atleast_2d(parameters),emulation_data.pos_norm)#/LCDM_ref[emulation_data.pos_norm]
+                F=F[0]
+                ind = emulation_data.get_index_param(parameters,emulation_data.multiple_z)
+                y = emulation_data.df_ext.loc[ind].values.flatten()[emulation_data.pos_norm]
 
-            F_true = np.atleast_1d(y/LCDM_ref[emulation_data.pos_norm])
-            print( "RMSE of normalisation factor",
-                  too.root_mean_sq_err(np.atleast_1d(F), np.atleast_1d(F_true)))
+                F_true = np.atleast_1d(y/LCDM_ref[emulation_data.pos_norm])
+                print( "RMSE of normalisation factor",
+                    too.root_mean_sq_err(np.atleast_1d(F), np.atleast_1d(F_true)))
 
-        spectrum = ratios_predicted[parameters] * LCDM_ref [emulation_data.mask_true]*F
-        spectra[parameters] =  spectrum
+            spectrum = ratios_predicted[parameters] * LCDM_ref [emulation_data.mask_true]*F
+            spectra[parameters] =  spectrum
+
     return spectra
 
 def RMSE_parameters(emulation_data,
