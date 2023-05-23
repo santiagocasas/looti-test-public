@@ -3,19 +3,12 @@ import sys
 import numpy as np
 import errno
 
-from future.utils import viewitems
 import pandas as pd
-import pickle
-import random as rn
-from itertools import cycle
-import time
-from collections import OrderedDict
 import looti.tools as too
 
-from scipy.signal import savgol_filter
 
 from sklearn.model_selection import train_test_split
-from sklearn.model_selection import KFold, RepeatedKFold, LeavePOut, StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.utils import shuffle
 
 class objdict(dict):
@@ -264,8 +257,7 @@ class DataHandle:
 
                 self.binwise_mean = binwise_mean
                 self.binwise_std = binwise_std
-                # self.matrix_raw = exnoi
-                # self.matrix_normed = (exnoi - binwise_mean) / binwise_std
+
                 matrix_z[nnoi] = (exnoi - binwise_mean) / binwise_std
 
             if _SAVING == True:

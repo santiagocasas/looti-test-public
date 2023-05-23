@@ -59,7 +59,7 @@ def Plot_prediction_One_parameter(emulation_data, paramindex = None, predictions
     
     
     ax[0].semilogx(k_grid,truth,color ='green', label = 'test data')
-    ax[0].semilogx(k_grid,prediction,color ='red',label = 'prediction')
+    ax[0].semilogx(k_grid,prediction,color ='red',label = 'prediction', linestyle='--')
     
     if plot_training_vectors  == True and ratio_mode == True:
         for i,trv in enumerate (emulation_data.train_samples):

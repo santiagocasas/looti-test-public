@@ -14,9 +14,7 @@ from sklearn.decomposition import PCA, FactorAnalysis, DictionaryLearning
 from sklearn.decomposition import SparseCoder
 
 from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.gaussian_process.kernels import RBF,  WhiteKernel
-from sklearn.gaussian_process.kernels import ConstantKernel as C
-from sklearn.decomposition import KernelPCA
+from sklearn.gaussian_process.kernels import RBF
 from sklearn.utils import shuffle
 
 import time
@@ -44,7 +42,8 @@ class LearningOperator:
         self._def_dl_fitalgo = 'lars'
         self._def_dl_maxiter = 2000
         self._def_gp_const = 10.0
-        self._def_gp_length = 5.0
+        self._def_gp_length = np.ones(6)
+        self._def_gp_bounds = (1e-5, 1e5)
         self._def_gp_n_rsts = 1
         self._def_ot_gamma=1e-7
         self._def_ot_num_iter=500
@@ -58,15 +57,17 @@ class LearningOperator:
         self.ncomp = kwargs.get('ncomp', self._def_ncomp)
         self.gp_n_rsts = kwargs.get('gp_n_rsts', self._def_gp_n_rsts)
         self.gp_const =  kwargs.get('gp_alpha', self._def_gp_const)
-        self.gp_length =  kwargs.get('gp_length', self._def_gp_const)
+        self.gp_length =  kwargs.get('gp_length', self._def_gp_length)
+        self.gp_bounds = kwargs.get('gp_bounds', self._def_gp_bounds)
         if(self.method == "DL"):
             self.dl_alpha =  kwargs.get('dl_alpha', self._def_dl_alpha)
             self.dl_tralgo = kwargs.get('transform_algorithm', self._def_dl_tralgo)
             self.dl_fitalgo = kwargs.get('fit_algorithm', self._def_dl_fitalgo)
             self.dl_maxiter = kwargs.get('max_iter', self._def_dl_maxiter)
         if(self.method == 'GP'):
-            self.gp_const =  kwargs.get('gp_alpha', self._def_gp_const)
+            self.gp_const =  kwargs.get('gp_alpha', self._def_gp_length)
             self.gp_length =  kwargs.get('gp_length', self._def_gp_const)
+            self.gp_bounds = kwargs.get('gp_bounds', self._def_gp_bounds)
         if(self.method=='OT'):
             self.ot_nsteps=kwargs.get('nsteps', self._def_ot_nsteps)
             self.ot_gamma=kwargs.get('gamma', self._def_ot_gamma)
@@ -91,6 +92,7 @@ class LearnData:
         self.gp_n_rsts = self.operator.gp_n_rsts
         self.gp_const =  self.operator.gp_const
         self.gp_length =  self.operator.gp_length
+        self.gp_bounds = self.operator.gp_bounds
 
         if(self.method=='DL'):
             self.dl_alpha    = self.operator.dl_alpha
@@ -100,6 +102,7 @@ class LearnData:
         if(self.method == 'GP'):
             self.gp_const =  self.operator.gp_const
             self.gp_length =  self.operator.gp_length
+            self.gp_bounds = self.operator.gp_bounds
             self.gp_n_rsts = self.operator.gp_n_rsts
 
         self.verbosity = self.operator.verbosity
@@ -175,11 +178,16 @@ class LearnData:
         self.dictionary = Vpca
         self.representation = matPCA
         coeffsPCA=np.transpose(matPCA)
+
+        self.trainspace_mean = self.trainspace.mean(axis=0)
+        self.trainspace_std = self.trainspace.std(axis=0)
+        self.trainspace_normed = (self.trainspace - self.trainspace_mean) / self.trainspace_std
+
         if self.interp_type == "GP":
-            self.gp_regressor.fit(self.trainspace,matPCA)
+            self.gp_regressor.fit(self.trainspace_normed, matPCA)
         else :
 
-            interpolFuncsPCA_matrix=self.interpolator_func(self.trainspace, coeffsPCA)
+            interpolFuncsPCA_matrix=self.interpolator_func(self.trainspace_normed, coeffsPCA)
             self.interpol_matrix = interpolFuncsPCA_matrix
             return self.interpol_matrix ## matrix of interpolating functions at each feature
 
@@ -216,9 +224,9 @@ class LearnData:
         self.gp_noise = Y_noise
 
         n_rsts = self.gp_n_rsts
-        kernel =  C(self.gp_const, (1e-3,1e3)) + C(self.gp_const, (1e-3,1e3)) * RBF(self.gp_length, (1e-2,1e2))+WhiteKernel()
+        kernel = RBF(self.gp_length, self.gp_bounds)
         self.gp_regressor = GaussianProcessRegressor(kernel=kernel ,
-                   n_restarts_optimizer=n_rsts, alpha=Y_noise**2)
+                   n_restarts_optimizer=n_rsts, alpha=Y_noise)
 
 
     def GPtraining(self):
@@ -294,16 +302,18 @@ class LearnData:
             reco: spectra predicted
         """
         if self.method=="PCA":
+            parspace = (parspace - self.trainspace_mean) / self.trainspace_std
             if self.interp_type == "GP":
-                if pca_norm == True:
-                    interp_atoms_normed = self.gp_regressor.predict(parspace)
-                    interp_atoms = interp_atoms_normed * self.matPCA_std + self.matPCA_mean
-                else:
-                    interp_atoms = self.gp_regressor.predict(parspace)
+                self.interp_atoms_normed = self.gp_regressor.predict(parspace)
             else :
-                interp_atoms = self.interpolated_atoms(parspace)
+                self.interp_atoms_normed = self.interpolated_atoms(parspace)
 
-            reco = np.dot(interp_atoms,self.dictionary)+self.pca_mean
+            if pca_norm == True:
+                self.interp_atoms = self.interp_atoms_normed * self.matPCA_std + self.matPCA_mean
+            else:
+                self.interp_atoms = self.interp_atoms_normed
+
+            reco = np.dot(self.interp_atoms,self.dictionary)+self.pca_mean
         elif self.method=="DL":
             if self.interp_type == "GP":
                 interp_atoms= self.gp_regressor.predict(parspace)
@@ -441,9 +451,10 @@ def Predict_ratio(emulation_data,
                   Operator = "GP",
                   ncomp = 1,
                   train_noise = 1e-10,
-                  gp_n_rsts = 10,
+                  gp_n_rsts = 40,
                   gp_const = 1,
-                  gp_length = 10 ,
+                  gp_length = np.ones(6),
+                  gp_bounds = (1e-5, 1e5),
                   interp_type = 'GP',
                   interp_dim = 1,
                   n_train = None,
@@ -570,8 +581,8 @@ def reconstruct_spectra(ratios_predicted,
                 y = emulation_data.df_ext.loc[ind].values.flatten()[emulation_data.pos_norm]
 
                 F_true = np.atleast_1d(y/LCDM_ref[emulation_data.pos_norm])
-                print( "RMSE of normalisation factor",
-                    too.root_mean_sq_err(np.atleast_1d(F), np.atleast_1d(F_true)))
+                # print( "RMSE of normalisation factor",
+                #     too.root_mean_sq_err(np.atleast_1d(F), np.atleast_1d(F_true)))
 
             spectrum = ratios_predicted[parameters] * LCDM_ref [emulation_data.mask_true]*F
             spectra[parameters] =  spectrum
@@ -690,9 +701,8 @@ def Interpolate_over_factor(emulation_data,
         
         Y.append(y/LCDM_ref)
     Y = np.array(Y)
-    kernel =  C()+ C() * RBF()
-    gp_regressor = GaussianProcessRegressor(kernel=kernel ,
-                   n_restarts_optimizer=10, alpha=10e-3**2)
+    kernel = RBF()
+    gp_regressor = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=10, alpha=10e-3**2)
     gp_regressor.fit(X,Y)
     return gp_regressor
 
