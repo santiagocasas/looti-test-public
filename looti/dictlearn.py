@@ -65,8 +65,8 @@ class LearningOperator:
             self.dl_fitalgo = kwargs.get('fit_algorithm', self._def_dl_fitalgo)
             self.dl_maxiter = kwargs.get('max_iter', self._def_dl_maxiter)
         if(self.method == 'GP'):
-            self.gp_const =  kwargs.get('gp_alpha', self._def_gp_length)
-            self.gp_length =  kwargs.get('gp_length', self._def_gp_const)
+            self.gp_const =  kwargs.get('gp_alpha', self._def_gp_const)
+            self.gp_length =  kwargs.get('gp_length', self._def_gp_length)
             self.gp_bounds = kwargs.get('gp_bounds', self._def_gp_bounds)
         if(self.method=='OT'):
             self.ot_nsteps=kwargs.get('nsteps', self._def_ot_nsteps)
