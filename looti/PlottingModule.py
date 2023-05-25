@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
 import matplotlib.cm as cm
-def Plot_prediction_One_parameter(emulation_data,paramvalue = None,predictions = None,
+def Plot_prediction_One_parameter(emulation_data, paramindex = None, predictions = None,
                                    xlabel='k in 1/Mpc',Factor = 1,ratio_mode = True,y_scale_log = False,
                                    plot_training_vectors = False,save_path=None,name_of_plot="pred_temp" ):
     """Plot the prediction for one single parameter 
@@ -36,11 +36,11 @@ def Plot_prediction_One_parameter(emulation_data,paramvalue = None,predictions =
         ratio_dict[tuple(ts)]=md
 
 
-    paramvalue = np.atleast_1d(paramvalue)
-    if emulation_data.multiple_z == True:
-        paramindex = (np.abs(emulation_data.test_samples[:,1:] - paramvalue)).argmin()
-    else:
-        paramindex = (np.abs(emulation_data.test_samples[:] - paramvalue)).argmin()
+    # paramvalue = np.atleast_1d(paramvalue)
+    # if emulation_data.multiple_z == True:
+    #     paramindex = (np.abs(emulation_data.test_samples[:,1:] - paramvalue)).argmin()
+    # else:
+    #     paramindex = (np.abs(emulation_data.test_samples[:] - paramvalue)).argmin()
 
     paramvalue =emulation_data.test_samples[paramindex]
     
@@ -59,7 +59,7 @@ def Plot_prediction_One_parameter(emulation_data,paramvalue = None,predictions =
     
     
     ax[0].semilogx(k_grid,truth,color ='green', label = 'test data')
-    ax[0].semilogx(k_grid,prediction,color ='red',label = 'prediction')
+    ax[0].semilogx(k_grid,prediction,color ='red',label = 'prediction', linestyle='--')
     
     if plot_training_vectors  == True and ratio_mode == True:
         for i,trv in enumerate (emulation_data.train_samples):

@@ -14,9 +14,7 @@ from sklearn.decomposition import PCA, FactorAnalysis, DictionaryLearning
 from sklearn.decomposition import SparseCoder
 
 from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.gaussian_process.kernels import RBF,  WhiteKernel
-from sklearn.gaussian_process.kernels import ConstantKernel as C
-from sklearn.decomposition import KernelPCA
+from sklearn.gaussian_process.kernels import RBF
 from sklearn.utils import shuffle
 
 import time
@@ -44,7 +42,8 @@ class LearningOperator:
         self._def_dl_fitalgo = 'lars'
         self._def_dl_maxiter = 2000
         self._def_gp_const = 10.0
-        self._def_gp_length = 5.0
+        self._def_gp_length = np.ones(6)
+        self._def_gp_bounds = (1e-5, 1e5)
         self._def_gp_n_rsts = 1
         self._def_ot_gamma=1e-7
         self._def_ot_num_iter=500
@@ -58,7 +57,8 @@ class LearningOperator:
         self.ncomp = kwargs.get('ncomp', self._def_ncomp)
         self.gp_n_rsts = kwargs.get('gp_n_rsts', self._def_gp_n_rsts)
         self.gp_const =  kwargs.get('gp_alpha', self._def_gp_const)
-        self.gp_length =  kwargs.get('gp_length', self._def_gp_const)
+        self.gp_length =  kwargs.get('gp_length', self._def_gp_length)
+        self.gp_bounds = kwargs.get('gp_bounds', self._def_gp_bounds)
         if(self.method == "DL"):
             self.dl_alpha =  kwargs.get('dl_alpha', self._def_dl_alpha)
             self.dl_tralgo = kwargs.get('transform_algorithm', self._def_dl_tralgo)
@@ -66,7 +66,8 @@ class LearningOperator:
             self.dl_maxiter = kwargs.get('max_iter', self._def_dl_maxiter)
         if(self.method == 'GP'):
             self.gp_const =  kwargs.get('gp_alpha', self._def_gp_const)
-            self.gp_length =  kwargs.get('gp_length', self._def_gp_const)
+            self.gp_length =  kwargs.get('gp_length', self._def_gp_length)
+            self.gp_bounds = kwargs.get('gp_bounds', self._def_gp_bounds)
         if(self.method=='OT'):
             self.ot_nsteps=kwargs.get('nsteps', self._def_ot_nsteps)
             self.ot_gamma=kwargs.get('gamma', self._def_ot_gamma)
@@ -91,6 +92,7 @@ class LearnData:
         self.gp_n_rsts = self.operator.gp_n_rsts
         self.gp_const =  self.operator.gp_const
         self.gp_length =  self.operator.gp_length
+        self.gp_bounds = self.operator.gp_bounds
 
         if(self.method=='DL'):
             self.dl_alpha    = self.operator.dl_alpha
@@ -100,12 +102,13 @@ class LearnData:
         if(self.method == 'GP'):
             self.gp_const =  self.operator.gp_const
             self.gp_length =  self.operator.gp_length
+            self.gp_bounds = self.operator.gp_bounds
             self.gp_n_rsts = self.operator.gp_n_rsts
 
         self.verbosity = self.operator.verbosity
         return None
 
-    def interpolate(self, train_data=[], train_samples=[], train_noise=[False]):
+    def interpolate(self, train_data=[], train_samples=[], train_noise=[False], pca_norm=False):
         """Construct the interpolation between the paremeters and the spectra of the training set.
         Args:
             train_data: spectra 
@@ -130,7 +133,7 @@ class LearnData:
         if self.method == "LIN":
             self.LINtraining()
         elif self.method == "PCA":
-            self.PCAtraining()
+            self.PCAtraining(pca_norm)
         elif self.method == "DL":
             self.DLtraining()
         elif self.method == "GP":
@@ -151,11 +154,19 @@ class LearnData:
         self.interpol_matrix = interpolFuncsLin_matrix
         return self.interpol_matrix  ## matrix of interpolating functions at each feature
 
-    def PCAtraining(self):
+    def PCAtraining(self, pca_norm):
         """Computing the PCA representation and contruct the interpolation over the PCA components"""
         pca=PCA(n_components=self.ncomp)
         self.pca=pca## take n principal components
-        matPCA=pca.fit(self.trainspace_mat).transform(self.trainspace_mat)
+
+        if pca_norm == True:
+            matPCA_raw=pca.fit(self.trainspace_mat).transform(self.trainspace_mat)
+            self.matPCA_mean = matPCA_raw.mean(axis=0)
+            self.matPCA_std = matPCA_raw.std(axis=0)
+            matPCA = (matPCA_raw - self.matPCA_mean) / self.matPCA_std
+        else:
+            matPCA=pca.fit(self.trainspace_mat).transform(self.trainspace_mat)
+
         ncomp=pca.n_components_
         Vpca=pca.components_
         meanvec=pca.mean_
@@ -167,11 +178,17 @@ class LearnData:
         self.dictionary = Vpca
         self.representation = matPCA
         coeffsPCA=np.transpose(matPCA)
+
+        self.trainspace_mean = self.trainspace.mean(axis=0)
+        self.trainspace_std = self.trainspace.std(axis=0)
+        self.trainspace_std[self.trainspace_std==0] = 1
+        self.trainspace_normed = (self.trainspace - self.trainspace_mean) / self.trainspace_std
+
         if self.interp_type == "GP":
-            self.gp_regressor.fit(self.trainspace,matPCA)
+            self.gp_regressor.fit(self.trainspace_normed, matPCA)
         else :
 
-            interpolFuncsPCA_matrix=self.interpolator_func(self.trainspace, coeffsPCA)
+            interpolFuncsPCA_matrix=self.interpolator_func(self.trainspace_normed, coeffsPCA)
             self.interpol_matrix = interpolFuncsPCA_matrix
             return self.interpol_matrix ## matrix of interpolating functions at each feature
 
@@ -208,9 +225,9 @@ class LearnData:
         self.gp_noise = Y_noise
 
         n_rsts = self.gp_n_rsts
-        kernel =  C(self.gp_const, (1e-3,1e3)) + C(self.gp_const, (1e-3,1e3)) * RBF(self.gp_length, (1e-2,1e2))+WhiteKernel()
+        kernel = RBF(self.gp_length, self.gp_bounds)
         self.gp_regressor = GaussianProcessRegressor(kernel=kernel ,
-                   n_restarts_optimizer=n_rsts, alpha=Y_noise**2)
+                   n_restarts_optimizer=n_rsts, alpha=Y_noise)
 
 
     def GPtraining(self):
@@ -232,7 +249,7 @@ class LearnData:
         self.OT.OT_Algorithm(self.trainspace,self.operator.ot_xgrids,mode='train',data=self.trainspace_mat,)
 
 
-    def predict(self, predict_space):
+    def predict(self, predict_space, pca_norm):
         """Predict the spectra for a given set of paremeters.
         Args:
             predict_space: the paremeters of the spectra to predict.
@@ -245,7 +262,7 @@ class LearnData:
         self.predict_space = np.copy(predict_space)
         if self.interp_dim<2:
             self.predict_space = self.predict_space[:,-1].flatten()
-        self.predict_mat = self.reconstruct_data(self.predict_space)
+        self.predict_mat = self.reconstruct_data(self.predict_space, pca_norm)
         self.predict_mat_dict = dict()
         if self.method=="OT":
             pred_ws=self.predi_weights_arr
@@ -278,7 +295,7 @@ class LearnData:
 
 
 
-    def reconstruct_data(self, parspace):
+    def reconstruct_data(self, parspace, pca_norm):
         """Predict the spectra for a given set of paremeters.
         Args:
             predict_space: paremeters of the spectra to predict.
@@ -286,13 +303,18 @@ class LearnData:
             reco: spectra predicted
         """
         if self.method=="PCA":
+            parspace = (parspace - self.trainspace_mean) / self.trainspace_std
             if self.interp_type == "GP":
-                interp_atoms= self.gp_regressor.predict(parspace)
-
+                self.interp_atoms_normed = self.gp_regressor.predict(parspace)
             else :
-                interp_atoms = self.interpolated_atoms(parspace)
+                self.interp_atoms_normed = self.interpolated_atoms(parspace)
 
-            reco = np.dot(interp_atoms,self.dictionary)+self.pca_mean
+            if pca_norm == True:
+                self.interp_atoms = self.interp_atoms_normed * self.matPCA_std + self.matPCA_mean
+            else:
+                self.interp_atoms = self.interp_atoms_normed
+
+            reco = np.dot(self.interp_atoms,self.dictionary)+self.pca_mean
         elif self.method=="DL":
             if self.interp_type == "GP":
                 interp_atoms= self.gp_regressor.predict(parspace)
@@ -427,22 +449,29 @@ class LearnData:
 
 
 def Predict_ratio(emulation_data,
-              Operator = "GP",
-              ncomp = 1,
-              train_noise = 1e-10,
-              gp_n_rsts = 10,
-              gp_const = 1,
-              gp_length = 10 ,
-              interp_type='GP',
-              n_train=None,
-              n_test=None,
-              n_splits=1,
-              split = 0,
-              test_indices=[1],
+                  Operator = "GP",
+                  ncomp = 1,
+                  train_noise = 1e-10,
+                  gp_n_rsts = 40,
+                  gp_const = 1,
+                  gp_length = np.ones(6),
+                  gp_bounds = (1e-5, 1e5),
+                  interp_type = 'GP',
+                  interp_dim = 1,
+                  n_train = None,
+                  n_test = None,
+                  n_splits = 1,
+                  split = 0,
+                  test_indices = [1],
                   train_redshift_indices = [0],
                   test_redshift_indices = [0],
-              return_interpolator = False,
-              thinning = 1, min_k= None,max_k =None,mask=None,interp_dim=2):
+                  return_interpolator = False,
+                  thinning = 1, 
+                  min_k = None, 
+                  max_k = None,
+                  mask = None,
+                  pca_norm = True
+                  ):
     """Construct the interpolation of a set of training vectors and return the prediction over the set of test parameters.
      The user can previously split the data into train/vali/test or provide the number of training and test vectors wanted.
      In the last case, the function perfoms the split automatically.
@@ -478,7 +507,6 @@ def Predict_ratio(emulation_data,
         GLOBAL_apply_mask = False
 
 
-    noise_case= emulation_data.level_of_noise
     if (n_train is not None and n_test is not None):
         emulation_data.calculate_data_split(n_train = n_train,n_vali=1, n_test=n_test,
                                     n_splits=n_splits, verbosity=0,manual_split=True,test_indices=test_indices,
@@ -493,12 +521,12 @@ def Predict_ratio(emulation_data,
                                     test_redshift_indices = test_redshift_indices)
     emulation_data.data_split(split,thinning=thinning, mask=mask,
                                           apply_mask = GLOBAL_apply_mask, verbosity=0)
-    PCAop = LearningOperator(Operator,ncomp=ncomp,gp_n_rsts =gp_n_rsts,gp_const=gp_const,gp_length = gp_length,interp_type=   interp_type,interp_dim=interp_dim)
+    PCAop = LearningOperator(Operator,ncomp=ncomp,gp_n_rsts =gp_n_rsts,gp_const=gp_const,gp_length=gp_length, gp_bounds=gp_bounds, interp_type=interp_type,interp_dim=interp_dim)
     intobj = LearnData(PCAop)
 ###Perfoming the PCA reduction and interpolation
-    intobj.interpolate(train_data=emulation_data.matrix_datalearn_dict[noise_case]['train'],
-                       train_samples=emulation_data.train_samples,train_noise = train_noise )
-    ratios_predicted = intobj.predict(emulation_data.test_samples)
+    intobj.interpolate(train_data=emulation_data.matrix_datalearn_dict['train'],
+                       train_samples=emulation_data.train_samples,train_noise = train_noise, pca_norm=pca_norm)
+    ratios_predicted = intobj.predict(emulation_data.test_samples, pca_norm)
 
     if return_interpolator == True:
         return  ratios_predicted,emulation_data,intobj 
@@ -509,7 +537,7 @@ def Predict_ratio(emulation_data,
 
 def reconstruct_spectra(ratios_predicted,
                         emulation_data,
-                        normalization = False, pos_norm = 2):
+                        normalization = False):
     """Reconstruct the spectra from ratios
      Args:
          ratios_predicted: a dictionary parameters -> ratios
@@ -522,29 +550,26 @@ def reconstruct_spectra(ratios_predicted,
      
      
     spectra={}
-    if normalization  == True:
-        Interpolatation_of_f= Interpolate_over_factor(emulation_data)
+
     for parameters in list(ratios_predicted.keys()):
        # ind = emulation_data.get_index_param(parameters,multiple_redshift=emulation_data.multiple_z)
         if emulation_data.multiple_z == True:
-            LCDM_ref = emulation_data.df_ref.loc[emulation_data.level_of_noise,parameters[0]].values.flatten()
+            LCDM_ref = emulation_data.df_ref.loc[parameters[0]].values.flatten()
         else:
-           LCDM_ref = emulation_data.df_ref.loc[(emulation_data.level_of_noise),:].values.flatten()
-        if normalization  == False:
-            F = 1
+           LCDM_ref = emulation_data.df_ref.loc[emulation_data.z_requested].values.flatten()
+
+
+        if normalization == True:
+            binwise_mean = emulation_data.binwise_mean
+            binwise_std = emulation_data.binwise_std
         else:
+            binwise_mean = 0
+            binwise_std = 1
 
-            F = Interpolatation_of_f.predict(np.atleast_2d(parameters),emulation_data.pos_norm)#/LCDM_ref[emulation_data.pos_norm]
-            F=F[0]
-            ind = emulation_data.get_index_param(parameters,emulation_data.multiple_z)
-            y = emulation_data.df_ext.loc[ind].values.flatten()[emulation_data.pos_norm]
+        spectrum = (ratios_predicted[parameters] * binwise_std + binwise_mean) * LCDM_ref[emulation_data.mask_true]
+        spectra[parameters] = spectrum
 
-            F_true = np.atleast_1d(y/LCDM_ref[emulation_data.pos_norm])
-            print( "RMSE of normalisation factor",
-                  too.root_mean_sq_err(np.atleast_1d(F), np.atleast_1d(F_true)))
 
-        spectrum = ratios_predicted[parameters] * LCDM_ref [emulation_data.mask_true]*F
-        spectra[parameters] =  spectrum
     return spectra
 
 def RMSE_parameters(emulation_data,
@@ -564,7 +589,7 @@ def RMSE_parameters(emulation_data,
               thinning = 1, min_k= None,max_k =None,mask=None,interp_dim=2):
     
     """/!\ WARNING /!\ we are not using this function anymore."""
-    n_test = len(emulation_data.matrix_ratios_dict["theo"])/len(emulation_data.z_requested)
+    n_test = len(emulation_data.matrix_z)/len(emulation_data.z_requested)
     Params = []
     RMSE_array = []
     for i in range(n_test):
@@ -577,7 +602,7 @@ def RMSE_parameters(emulation_data,
                   test_redshift_indices,
                   thinning, min_k,max_k,mask,interp_dim,test_indices = [i])
     Params.append([list(rr) for rr in ratios_predicted.keys()])
-    Ratios_truth = emulation_data.matrix_datalearn_dict["theo"]["test"]
+    Ratios_truth = emulation_data.matrix_datalearn_dict["test"]
     Ratios = list (ratios_predicted.values())
     RMSE_array.append(too.root_mean_sq_err(Ratios_truth[0],Ratios[0]))   
     return Params,RMSE_array
@@ -596,7 +621,7 @@ def Interpolate_over_parameter_for_any_redshift(emulation_data,test_indices,n_tr
 
         PCAop = LearningOperator("PCA",ncomp=n_train,gp_n_rsts =10,gp_const=1,gp_length = 0.5,interp_type="GP")
         intobj = LearnData(PCAop)
-        intobj.interpolate(train_data=emulation_data.matrix_datalearn_dict["theo"]['train'],
+        intobj.interpolate(train_data=emulation_data.matrix_datalearn_dict['train'],
                    train_samples=emulation_data.train_samples,train_noise= Y_noise )
         ratios_predicted=np.array([ii for ii in (intobj.predict(emulation_data.test_samples).values())])
         D_redshift.append(ratios_predicted.reshape(n_param_test,len(emulation_data.k_grid)))
@@ -614,7 +639,7 @@ def RMSE_Interpolate_over_redshift(emulation_data,D_redshifts,test_indices,min_n
     redshift_indices = list(range(len(emulation_data.z_requested)))
     redshift_indices = shuffle(redshift_indices )
     test_redshift_indices = redshift_indices[:n_test]
-    n_param = int(len(emulation_data.matrix_ratios_dict["theo"])/len(emulation_data.z_requested))
+    n_param = int(len(emulation_data.matrix_z)/len(emulation_data.z_requested))
     RMSE_list=[]
     for n_train in range(min_n_train,max_n_train):
         train_redshift_indices = redshift_indices[n_test:n_test+n_train]
@@ -630,7 +655,7 @@ def RMSE_Interpolate_over_redshift(emulation_data,D_redshifts,test_indices,min_n
 
 
             mask = [indices_param +n_param*redshift for redshift in test_redshift_indices ]
-            ref = emulation_data.matrix_ratios_dict["theo"][mask]
+            ref = emulation_data.matrix_z[mask]
             rmse+=too.root_mean_sq_err(prediction,ref)
         rmse/=( n_param_test*len(test_redshift_indices))
         RMSE_list.append(rmse)
@@ -653,15 +678,14 @@ def Interpolate_over_factor(emulation_data,
         ind = emulation_data.get_index_param(x,emulation_data.multiple_z)
         y = emulation_data.df_ext.loc[ind].values.flatten()[pos_norm]
         if emulation_data.multiple_z == True:
-            LCDM_ref = emulation_data.df_ref.loc[emulation_data.level_of_noise,x[0]].values.flatten()[pos_norm]
+            LCDM_ref = emulation_data.df_ref.loc[x[0]].values.flatten()[pos_norm]
         else:
-           LCDM_ref = emulation_data.df_ref.loc[(emulation_data.level_of_noise),:].values.flatten()[pos_norm]
+           LCDM_ref = emulation_data.df_ref.loc[emulation_data.z_requested].values.flatten()[pos_norm]
         
         Y.append(y/LCDM_ref)
     Y = np.array(Y)
-    kernel =  C()+ C() * RBF()
-    gp_regressor = GaussianProcessRegressor(kernel=kernel ,
-                   n_restarts_optimizer=10, alpha=10e-3**2)
+    kernel = RBF()
+    gp_regressor = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=10, alpha=10e-3)
     gp_regressor.fit(X,Y)
     return gp_regressor
 
@@ -704,10 +728,10 @@ def Interpolate_over_parameter_and_redshift(emulation_data,test_indices,min_n_tr
 
         PCAop = LearningOperator("PCA",ncomp=n_train,gp_n_rsts =10,gp_const=1,gp_length = 0.5,interp_type="GP")
         intobj = LearnData(PCAop)
-        intobj.interpolate(train_data=emulation_data.matrix_datalearn_dict["theo"]['train'],
+        intobj.interpolate(train_data=emulation_data.matrix_datalearn_dict['train'],
                    train_samples=emulation_data.train_samples,train_noise= Y_noise )
         ratios_predicted=np.array([ii for ii in (intobj.predict(emulation_data.test_samples).values())])
-        rmse=too.root_mean_sq_err(ratios_predicted,emulation_data.matrix_datalearn_dict["theo"]['test'])
+        rmse=too.root_mean_sq_err(ratios_predicted,emulation_data.matrix_datalearn_dict['test'])
 
         RMSE_list.append(rmse)
     return RMSE_list
